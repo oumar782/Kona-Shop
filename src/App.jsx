@@ -1,34 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/WhatsApp Image 2025-07-23 à 02.08.18_4916699a.jpg'
-import './App.css'
+import Header from './composants/Header';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <main className="main2026">
+        <section className="hero2026">
+          <h1 className="hero2026__title">Bienvenue sur <span>KonaShop</span></h1>
+          <p className="hero2026__subtitle">La boutique du futur, aujourd'hui. Découvrez nos nouveautés et profitez d'une expérience shopping inédite.</p>
+          <a href="#boutique" className="hero2026__cta">Découvrir la boutique</a>
+        </section>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
