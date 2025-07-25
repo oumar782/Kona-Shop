@@ -9,10 +9,8 @@ const LuxuryCarousel = () => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const carouselRef = useRef(null);
-
-  // Configuration responsive
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
-  
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -30,7 +28,7 @@ const LuxuryCarousel = () => {
       }
     }, 6000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isHovered, currentSlide]);
 
   const featuredProducts = [
     {
@@ -95,7 +93,6 @@ const LuxuryCarousel = () => {
     setCurrentSlide(index);
   };
 
-  // Gestion du touch swipe
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -118,7 +115,6 @@ const LuxuryCarousel = () => {
       className={`luxury-carousel ${isVisible ? 'visible' : ''}`}
       ref={carouselRef}
     >
-      {/* Éléments décoratifs */}
       <div className="luxury-decoration diamond-pattern"></div>
       <div className="luxury-decoration gold-blob"></div>
       <div className="luxury-decoration black-blob"></div>
@@ -175,7 +171,7 @@ const LuxuryCarousel = () => {
                           width={isMobile ? 400 : isTablet ? 600 : 800}
                           height={isMobile ? 400 : isTablet ? 600 : 800}
                         />
-                        <div className="product-badge">{product.badge}</div>
+                        <div className="product-badge jewel-style sparkle">{product.badge}</div>
                         <div className="image-overlay"></div>
                         <div className="image-shine"></div>
                       </div>
@@ -209,15 +205,22 @@ const LuxuryCarousel = () => {
                       </div>
 
                       <div className="action-buttons">
-                        <button className="add-to-cart">
-                          <span>Ajouter au Panier</span>
-                          <div className="button-hover"></div>
-                        </button>
-                        <button className="wishlist">
-                          <Heart className="heart-icon" />
-                          {!isMobile && <span>Liste de Souhaits</span>}
-                        </button>
-                      </div>
+  <button 
+    className="add-to-cart"
+    onClick={() => handleAddToCart(product.id)}
+    aria-label={`Ajouter ${product.name} au panier`}
+  >
+    <span>Ajouter au Panier</span>
+    <div className="button-hover"></div>
+    {/* Option: Ajouter une icône */}
+    {/* <ShoppingCart className="cart-icon" size={18} /> */}
+  </button>
+  
+  <button className="wishlist">
+    <Heart className="heart-icon" />
+    {!isMobile && <span>Liste de Souhaits</span>}
+  </button>
+</div>
                     </div>
                   </div>
                 </div>
