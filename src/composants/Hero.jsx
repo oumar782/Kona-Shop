@@ -15,7 +15,7 @@ const Hero = () => {
     {
       id: 1,
       category: "Parfumerie",
-      title: "L'Art de la Fragrance",
+      title: "l’art de la fragrance",
       subtitle: "Des essences qui captivent",
       description: "Découvrez nos parfums exclusifs créés par les meilleurs nez du monde pour une expérience olfactive inoubliable.",
       badges: ["Nouveautés 2024", "Éditions Limitées", "100% Naturel"],
@@ -29,7 +29,7 @@ const Hero = () => {
     {
       id: 2,
       category: "Prêt-à-Porter",
-      title: "Élégance Contemporaine",
+      title: "Élégance moderne",
       subtitle: "Des collections qui vous ressemblent",
       description: "Parcourez nos dernières collections de vêtements conçus avec des matériaux premium pour un style unique au quotidien.",
       badges: ["Nouvelle Collection", "Tendances 2024", "Fabriqué en France"],
@@ -43,7 +43,7 @@ const Hero = () => {
     {
       id: 3,
       category: "Électronique",
-      title: "Innovation Technologique",
+      title: "Composants High-Tech ",
       subtitle: "L'avenir à portée de main",
       description: "Découvrez les dernières innovations technologiques pour équiper votre maison et votre bureau avec des produits high-tech de pointe.",
       badges: ["Nouveautés Tech", "Garantie 3 ans", "Écologique"],
@@ -99,7 +99,7 @@ const Hero = () => {
     {
       id: 7,
       category: "Tapisserie",
-      title: "L'Art du Textile",
+      title: " Textiles d’Art",
       subtitle: "Décorez avec caractère",
       description: "Des tissus d'exception et des tapis artisanaux pour transformer votre intérieur en un havre de paix et d'élégance.",
       badges: ["Artisanal", "Matières Premium", "Sur Mesure"],
