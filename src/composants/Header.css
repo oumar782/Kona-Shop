@@ -125,14 +125,14 @@
   bottom: 0;
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, #646cff 0%, #213547 100%);
+  background: linear-gradient(90deg, #bbad15 0%, #fafcfd 100%);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(.4,0,.2,1);
   transform: translateX(-50%);
 }
 .header2026__nav-link:hover {
-  color: #646cff;
-  background: rgba(100,108,255,0.07);
+  color: #a89b0f;
+  background: rgba(194, 179, 15, 0.07);
   box-shadow: 0 2px 12px 0 rgba(100,108,255,0.07);
 }
 .header2026__nav-link:hover::before {
