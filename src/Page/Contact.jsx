@@ -1,7 +1,20 @@
-import React, { useState } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Headphones, Globe } from 'lucide-react';
 import './Contact.css';
+
+// Configuration de l'icône du marqueur
+const customIcon = new L.Icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,36 +25,16 @@ const Contact = () => {
     message: ''
   });
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Message envoyé ! Nous vous répondrons dans les plus brefs délais.");
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-  };
-
-  // Configuration de la carte
-  const mapContainerStyle = {
-    width: '100%',
-    height: '100%',
-    borderRadius: '12px'
-  };
-
-  // Coordonnées du centre de la carte (remplacez par vos coordonnées)
-  const center = {
-    lat: 33.5731, // Latitude de Casablanca
-    lng: -7.5898  // Longitude de Casablanca
-  };
-
-  // Options de la carte
-  const mapOptions = {
-    disableDefaultUI: true,
-    zoomControl: true,
-    styles: [
-      {
-        featureType: "poi",
-        elementType: "labels",
-        stylers: [{ visibility: "off" }]
-      }
-    ]
   };
 
   const contactInfo = [
@@ -92,6 +85,9 @@ const Contact = () => {
     }
   ];
 
+  // Coordonnées de la carte (remplacer par vos coordonnées)
+  const mapPosition = [33.5731, -7.5898];
+
   return (
     <div className="contact-container">
       {/* Hero Section */}
@@ -112,10 +108,7 @@ const Contact = () => {
         <div className="contact-quick-actions-container">
           <div className="contact-quick-actions-grid">
             {quickActions.map((action, index) => (
-              <div 
-                key={index} 
-                className="contact-quick-action-card"
-              >
+              <div key={index} className="contact-quick-action-card">
                 <div className="contact-quick-action-icon-wrapper">
                   <action.icon className="contact-quick-action-icon" />
                 </div>
@@ -246,18 +239,24 @@ const Contact = () => {
               
               {/* Map */}
               <div className="contact-map-card">
-                <LoadScript
-                  googleMapsApiKey="VOTRE_CLE_API_GOOGLE_MAPS"
-                >
-                  <GoogleMap
-                    mapContainerStyle={mapContainerStyle}
-                    center={center}
+                {isClient && (
+                  <MapContainer 
+                    center={mapPosition} 
                     zoom={15}
-                    options={mapOptions}
+                    scrollWheelZoom={false}
+                    style={{ height: '100%', width: '100%' }}
                   >
-                    <Marker position={center} />
-                  </GoogleMap>
-                </LoadScript>
+                    <TileLayer
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    />
+                    <Marker position={mapPosition} icon={customIcon}>
+                      <Popup>
+                        123 Avenue Mohammed V, Casablanca
+                      </Popup>
+                    </Marker>
+                  </MapContainer>
+                )}
               </div>
             </div>
           </div>

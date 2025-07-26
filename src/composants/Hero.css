@@ -288,18 +288,15 @@
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  
   /* Effet de gradient */
   background: linear-gradient(90deg, var(--black), var(--accent-color));
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 200% ;
-  
   /* Animation combinée */
   animation: 
     typing 6s steps(40, end) infinite,
     gradientShift 8s ease infinite;
-  
   /* Curseur */
   border-right: 4px solid var(--accent-color);
 }
@@ -344,7 +341,6 @@
   width: 60px;
   height: 4px;
   background: linear-gradient(90deg, var(--black), var(--accent-color));
-
   border-radius: 2px;
   transform-origin: left;
   transform: scaleX(0);
@@ -645,8 +641,9 @@
   border-radius: inherit;
 }
 
+/* La barre de progression est maintenant contrôlée via JS */
 .hero-nav__dot.active .hero-nav__dot-progress {
-  animation: progress 7s linear forwards;
+  /* L'animation est gérée dynamiquement dans le JSX */
 }
 
 .hero-nav__dot-label {
@@ -806,11 +803,9 @@
   .hero-slide {
     padding: 0 6%;
   }
-  
   .hero-slide__imgwrap {
     max-width: 600px;
   }
-  
   .hero-slide__content {
     padding: 2.5rem;
   }
@@ -820,16 +815,13 @@
   .hero-slide {
     padding: 0 5%;
   }
-  
   .hero-slide__imgwrap {
     max-width: 550px;
   }
-  
   .hero-nav__btn {
     width: 60px;
     height: 60px;
   }
-  
   .hero-nav__btn svg {
     width: 26px;
     height: 26px;
@@ -840,30 +832,24 @@
   .hero-slide {
     padding: 0 4%;
   }
-  
   .hero-slide__imgwrap {
     max-width: 500px;
   }
-  
   .hero-slide__content {
     padding: 2rem;
   }
-  
   .hero-nav__btn {
     width: 55px;
     height: 55px;
   }
-  
   .hero-nav__btn svg {
     width: 24px;
     height: 24px;
   }
-  
   .hero-autoplay {
     width: 55px;
     height: 55px;
   }
-  
   .hero-autoplay__icon {
     width: 22px;
     height: 22px;
@@ -878,7 +864,6 @@
     width: 100%;
     border-radius: 0;
   }
-  
   .hero-slide {
     flex-direction: column-reverse;
     justify-content: center;
@@ -886,7 +871,6 @@
     gap: 3rem;
     padding: 2rem 5%;
   }
-  
   .hero-slide__content {
     order: 2;
     padding: 2rem;
@@ -894,43 +878,35 @@
     margin: 0 auto;
     margin-top: 2rem;
   }
-  
   .hero-slide__imgwrap {
     order: 1;
     max-width: 500px;
     height: auto;
     margin-top: 1rem;
   }
-  
   .hero-slide__title::after {
     left: 50%;
     transform: translateX(-50%) scaleX(0);
   }
-  
   .hero-slide.active .hero-slide__title::after {
     transform: translateX(-50%) scaleX(1);
   }
-  
   .hero-slide__actions {
     justify-content: center;
   }
-  
   .hero-nav {
     bottom: 3%;
   }
-  
   .hero-autoplay {
     bottom: 3%;
     right: 3%;
   }
-
   .hero-nav__btn {
     width: 50px;
     height: 50px;
     opacity: 1;
     visibility: visible;
   }
-
   .hero-nav__btn svg {
     width: 22px;
     height: 22px;
@@ -941,35 +917,28 @@
   .hero-slide {
     padding: 1rem;
   }
-  
   .hero-slide__badges {
     justify-content: center;
   }
-  
   .hero-slide__imgwrap {
     max-width: 400px;
   }
-  
   .hero-slide__img {
     max-height: 70%;
     border-width: 10px;
   }
-
   .hero-nav__btn {
     width: 45px;
     height: 45px;
   }
-
   .hero-nav__btn svg {
     width: 20px;
     height: 20px;
   }
-  
   .hero-autoplay {
     width: 50px;
     height: 50px;
   }
-  
   .hero-autoplay__icon {
     width: 20px;
     height: 20px;
@@ -981,53 +950,43 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-  
   .hero-slide__subtitle {
     font-size: 1.2rem;
   }
-  
   .hero-slide__desc {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-  
   .hero-slide__actions {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  
   .hero-slide__cta {
     width: 100%;
     max-width: 280px;
     padding: 0.9rem 1.5rem;
   }
-  
   .hero-slide__imgwrap {
     max-width: 320px;
   }
-  
   .hero-nav {
     bottom: 2%;
     padding: 0.8rem 1.2rem;
   }
-  
   .hero-autoplay {
     width: 45px;
     height: 45px;
     bottom: 2%;
   }
-
   .hero-nav__btn {
     width: 40px;
     height: 40px;
   }
-
   .hero-nav__btn svg {
     width: 18px;
     height: 18px;
   }
-  
   .hero-autoplay__icon {
     width: 18px;
     height: 18px;
@@ -1038,26 +997,21 @@
   .hero-slide__title {
     font-size: 1.8rem;
   }
-  
   .hero-slide__badge {
     font-size: 0.75rem;
     padding: 0.5rem 1rem;
   }
-  
   .hero-slide__imgwrap {
     max-width: 280px;
   }
-
   .hero-nav {
     gap: 0.6rem;
     padding: 0.6rem 1rem;
   }
-
   .hero-nav__dot {
     width: 14px;
     height: 14px;
   }
-  
   .hero-nav__dot-label {
     font-size: 0.7rem;
     padding: 0.3rem 0.7rem;

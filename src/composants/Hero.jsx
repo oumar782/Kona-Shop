@@ -15,8 +15,8 @@ const Hero = () => {
     {
       id: 1,
       category: "Parfumerie",
-      title: "L'art de la fragrance",
-      subtitle: "Des essences qui captivent chez Kona Shop",
+      title: "l’art de la fragrance",
+      subtitle: "Des essences qui captivent",
       description: "Découvrez nos parfums exclusifs créés par les meilleurs nez du monde pour une expérience olfactive inoubliable.",
       badges: ["Nouveautés 2024", "Éditions Limitées", "100% Naturel"],
       ctaPrimary: "Voir les parfums",
@@ -43,8 +43,8 @@ const Hero = () => {
     {
       id: 3,
       category: "Électronique",
-      title: "Composants High-Tech",
-      subtitle: "L'avenir à portée de main avec Kona Shop",
+      title: "Composants High-Tech ",
+      subtitle: "L'avenir à portée de main",
       description: "Découvrez les dernières innovations technologiques pour équiper votre maison et votre bureau avec des produits high-tech de pointe.",
       badges: ["Nouveautés Tech", "Garantie 3 ans", "Écologique"],
       ctaPrimary: "Voir les produits",
@@ -53,6 +53,62 @@ const Hero = () => {
       bgColor: "linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%)",
       accentColor: "#00bcd4",
       overlay: "rgba(0, 188, 212, 0.15)"
+    },
+    {
+      id: 4,
+      category: "Jouets",
+      title: "Magie de l'Enfance",
+      subtitle: "Des sourires à partager",
+      description: "Notre sélection de jouets éducatifs et ludiques pour stimuler la créativité et l'imagination des enfants de tous âges.",
+      badges: ["Éducatif", "Sécurité Certifiée", "Eco-Friendly"],
+      ctaPrimary: "Jouets populaires",
+      ctaSecondary: "Par âge",
+      image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      bgColor: "linear-gradient(135deg, #fff9c4 0%, #ffccbc 100%)",
+      accentColor: "#ffab91",
+      overlay: "rgba(255, 171, 145, 0.15)"
+    },
+    {
+      id: 5,
+      category: "Bijouterie",
+      title: "L'Éclat du Luxe",
+      subtitle: "Pièces uniques, émotions intemporelles",
+      description: "Des bijoux artisanaux sertis de pierres précieuses pour marquer les moments spéciaux de votre vie.",
+      badges: ["Or 18K", "Pierres Naturelles", "Sur Mesure"],
+      ctaPrimary: "Collection Bijoux",
+      ctaSecondary: "Guide des Tailles",
+      image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      bgColor: "linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)",
+      accentColor: "#f8bbd0",
+      overlay: "rgba(248, 187, 208, 0.15)"
+    },
+    {
+      id: 6,
+      category: "Cosmétique",
+      title: "Beauté Naturelle",
+      subtitle: "Prenez soin de vous",
+      description: "Des produits de beauté bio et naturels formulés pour sublimer votre peau tout en respectant l'environnement.",
+      badges: ["Bio Certifié", "Vegan", "Sans Cruauté"],
+      ctaPrimary: "Soins Visage",
+      ctaSecondary: "Routine Beauté",
+      image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      bgColor: "linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)",
+      accentColor: "#81c784",
+      overlay: "rgba(129, 199, 132, 0.15)"
+    },
+    {
+      id: 7,
+      category: "Tapisserie",
+      title: " Textiles d’Art",
+      subtitle: "Décorez avec caractère",
+      description: "Des tissus d'exception et des tapis artisanaux pour transformer votre intérieur en un havre de paix et d'élégance.",
+      badges: ["Artisanal", "Matières Premium", "Sur Mesure"],
+      ctaPrimary: "Voir les tissus",
+      ctaSecondary: "Inspirations",
+      image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      bgColor: "linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%)",
+      accentColor: "#bcaaa4",
+      overlay: "rgba(188, 170, 164, 0.15)"
     }
   ];
 
@@ -154,16 +210,15 @@ const Hero = () => {
     }
   };
 
-  // Effet de particules élégant
+  // Effet de particules amélioré
   const createParticles = () => {
     const particles = [];
-    const particleCount = window.innerWidth < 768 ? 15 : 30;
+    const particleCount = window.innerWidth < 768 ? 10 : 20;
     
     for (let i = 0; i < particleCount; i++) {
-      const size = Math.random() * 10 + 3;
-      const duration = Math.random() * 15 + 10;
+      const size = Math.random() * 15 + 5;
+      const duration = Math.random() * 20 + 10;
       const delay = Math.random() * 5;
-      const shape = Math.random() > 0.7 ? '50%' : '0';
       
       particles.push(
         <div 
@@ -174,12 +229,11 @@ const Hero = () => {
             top: `${Math.random() * 100}%`,
             width: `${size}px`,
             height: `${size}px`,
-            opacity: Math.random() * 0.4 + 0.1,
+            opacity: Math.random() * 0.3 + 0.1,
             animationDelay: `${delay}s`,
             animationDuration: `${duration}s`,
-            background: `rgba(255, 255, 255, ${Math.random() * 0.6 + 0.2})`,
-            borderRadius: shape,
-            filter: `blur(${Math.random() * 2}px)`
+            background: `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1})`,
+            borderRadius: Math.random() > 0.5 ? '50%' : '0'
           }}
         />
       );
@@ -209,17 +263,12 @@ const Hero = () => {
           >
             {createParticles()}
             <div className="hero-slide__overlay"></div>
-            
             <div className="hero-slide__content">
               <span className="hero-slide__category">{slide.category}</span>
               
               <div className="hero-slide__badges">
                 {slide.badges.map((badge, i) => (
-                  <span 
-                    key={i} 
-                    className="hero-slide__badge" 
-                    style={{ '--delay': `${i * 0.1}s` }}
-                  >
+                  <span key={i} className="hero-slide__badge" style={{ '--delay': `${i * 0.1}s` }}>
                     {badge}
                   </span>
                 ))}

@@ -4,9 +4,9 @@
   --royal-blue: #090712;
   --royal-blue-light: #8b8b42;
   --royal-blue-dark: #202113;
-  --gold-elegant: #f59e0b;
+  --gold-elegant: #d4af37;
   --gold-light: #30291a;
-  --gold-dark: #d97706;
+  --gold-dark: #d4af37;
   --white: #ffffff;
   --light-gray: #f3f4f6;
   --medium-gray: #6b7280;
@@ -31,12 +31,30 @@ body {
   color: var(--black);
   overflow-x: hidden;
 }
-
+/* Correction pour Leaflet */
+.contact-map-card .leaflet-container {
+    height: 300px !important;
+    border-radius: 12px;
+    z-index: 1;
+  }
+  
+  /* Correction icône marker */
+  .leaflet-marker-icon {
+    background-image: url('https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png') !important;
+  }
 .contact-container {
   min-height: 100vh;
   
 }
 
+/* Map Card */
+.contact-map-card {
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
 /* Hero Section */
 .contact-hero-section {
   position: relative;
