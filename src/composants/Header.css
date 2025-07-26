@@ -235,3 +235,70 @@
     padding: 0.5rem 0.5rem;
   }
 }
+/* Ajouts pour les icônes */
+.header2026__icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.header2026__mobile-icons {
+  display: none;
+}
+
+.header2026__icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+.header2026__icon {
+  font-size: 1.4rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.header2026__icon-link:hover .header2026__icon {
+  color: #a89b0f;
+  transform: scale(1.1);
+}
+
+/* Styles pour mobile */
+@media (max-width: 700px) {
+  .header2026__icons {
+    display: none;
+  }
+  
+  .header2026__mobile-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  
+  .header2026__nav .header2026__icons {
+    display: flex;
+    margin-left: 0;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  
+  .header2026__nav .header2026__icon {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .header2026__mobile-icons {
+    gap: 0.8rem;
+  }
+  
+  .header2026__icon {
+    font-size: 1.2rem;
+  }
+}

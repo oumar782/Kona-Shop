@@ -4,6 +4,11 @@ import Store from './composants/store';
 import Vedette from './composants/vedette';
 import Luxury from './composants/luxury';
 import Footer from './composants/Footer';
+import Propos from './Page/Apropos';
+import Service from './Page/service';
+import Accueil from './Page/accueil';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -11,13 +16,21 @@ function App() {
     <>
       <Header />
       <main className="main2026">
-        <Hero />
-        <Store/>
-        <Vedette/>
-        <Luxury/>
-        <Footer/>
-
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Store />
+              <Vedette />
+              <Luxury />
+            </>
+          } />
+          <Route path="/apropos" element={<Propos />} />
+          <Route path="/accueil" element={<Accueil />} />
+          <Route path="/Service" element={<Service />} />
+        </Routes>
       </main>
+      <Footer />
     </>
   );
 }
