@@ -6,7 +6,7 @@ import { FaShoppingCart, FaHeart } from "react-icons/fa";
 const navLinks = [
   { name: "Accueil", href: "/accueil" },
   { name: "À propos", href: "/apropos" },
-  { name: "Boutique", href: "#boutique" },
+  { name: "Boutique", href: "/Boutique" },
   { name: "Nos services", href: "/Service" },
   { name: "Contact", href: "/contact" },
 ];

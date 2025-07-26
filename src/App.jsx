@@ -8,6 +8,7 @@ import Propos from './Page/Apropos';
 import Service from './Page/service';
 import Accueil from './Page/accueil';
 import Contact from './Page/Contact';
+import Boutique from './Page/boutique';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/accueil" element={<Accueil />} />
           <Route path="/Service" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/Boutique" element={<Boutique />} />
         </Routes>
       </main>
       <Footer />
