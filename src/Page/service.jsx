@@ -2,8 +2,8 @@ import React from 'react';
 import { Truck, Shield, Headphones, CreditCard, Settings, Smartphone, Clock, Award } from 'lucide-react';
 import './service.css';
 
-const Services = () => {
-  const services = [
+const PremiumServices = () => {
+  const servicesData = [
     {
       icon: Truck,
       title: "Livraison Gratuite",
@@ -34,7 +34,7 @@ const Services = () => {
     }
   ];
 
-  const supportServices = [
+  const supportServicesData = [
     {
       icon: Headphones,
       title: "Support 24/7",
@@ -58,56 +58,67 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-container">
+    <div className="premium-services-container">
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Nos <span className="gradient-text">Services</span>
-          </h1>
-          <p className="hero-subtitle">
-            Des services premium pour accompagner vos achats technologiques et garantir votre satisfaction totale.
-          </p>
+      <section className="premium-hero-section">
+        <div className="premium-hero-image-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+            alt="Services Premium" 
+            className="premium-hero-background-image"
+          />
+          <div className="premium-hero-overlay"></div>
+          <div className="premium-hero-gradient-overlay"></div>
+        </div>
+        
+        <div className="premium-hero-content">
+          <div className="premium-hero-text-container">
+            <h1 className="premium-hero-title">
+              Nos <span className="premium-gradient-text">Services</span>
+            </h1>
+            <p className="premium-hero-subtitle">
+              Des services premium pour accompagner vos achats technologiques et garantir votre satisfaction totale.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Main Services */}
-      <section className="main-services">
-        <div className="services-header">
-          <h2 className="section-title gradient-text">Services Premium</h2>
-          <p className="section-subtitle">
+      <section className="premium-main-services">
+        <div className="premium-services-header">
+          <h2 className="premium-section-title">Services <span className="premium-gradient-text">Premium</span></h2>
+          <p className="premium-section-subtitle">
             Une gamme complète de services pour enrichir votre expérience technologique.
           </p>
         </div>
         
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon-container">
-                <div className="service-icon-wrapper">
-                  <service.icon className="service-icon" />
+        <div className="premium-services-grid">
+          {servicesData.map((service, index) => (
+            <div key={index} className="premium-service-card">
+              <div className="premium-service-icon-container">
+                <div className="premium-service-icon-wrapper">
+                  <service.icon className="premium-service-icon" />
                 </div>
               </div>
               
-              <div className="service-content">
-                <div className="service-header">
-                  <h3 className="service-title">{service.title}</h3>
-                  <span className="service-price">{service.price}</span>
+              <div className="premium-service-content">
+                <div className="premium-service-header">
+                  <h3 className="premium-service-title">{service.title}</h3>
+                  <span className="premium-service-price">{service.price}</span>
                 </div>
                 
-                <p className="service-description">{service.description}</p>
+                <p className="premium-service-description">{service.description}</p>
                 
-                <ul className="service-features">
+                <ul className="premium-service-features">
                   {service.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="feature-item">
-                      <div className="feature-bullet"></div>
-                      <span className="feature-text">{feature}</span>
+                    <li key={fIndex} className="premium-feature-item">
+                      <div className="premium-feature-bullet"></div>
+                      <span className="premium-feature-text">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
-                <button className="service-button">En savoir plus</button>
+                <button className="premium-service-button">En savoir plus</button>
               </div>
             </div>
           ))}
@@ -115,40 +126,40 @@ const Services = () => {
       </section>
 
       {/* Support Services */}
-      <section className="support-section">
-        <div className="support-header">
-          <h2 className="section-title gradient-text">Support & Assistance</h2>
-          <p className="section-subtitle">
+      <section className="premium-support-section">
+        <div className="premium-support-header">
+          <h2 className="premium-section-title">Support & <span className="premium-gradient-text">Assistance</span></h2>
+          <p className="premium-section-subtitle">
             Un accompagnement personnalisé à chaque étape de votre parcours client.
           </p>
         </div>
         
-        <div className="support-grid">
-          {supportServices.map((service, index) => (
-            <div key={index} className="support-card">
-              <div className="support-icon-container">
-                <div className="support-icon-wrapper">
-                  <service.icon className="support-icon" />
+        <div className="premium-support-grid">
+          {supportServicesData.map((service, index) => (
+            <div key={index} className="premium-support-card">
+              <div className="premium-support-icon-container">
+                <div className="premium-support-icon-wrapper">
+                  <service.icon className="premium-support-icon" />
                 </div>
               </div>
               
-              <h3 className="support-title">{service.title}</h3>
-              <p className="support-description">{service.description}</p>
+              <h3 className="premium-support-title">{service.title}</h3>
+              <p className="premium-support-description">{service.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
-        <div className="cta-content">
-          <h2 className="cta-title">Besoin d'un service personnalisé ?</h2>
-          <p className="cta-subtitle">
+      <section className="premium-cta-section">
+        <div className="premium-cta-content">
+          <h2 className="premium-cta-title">Besoin d'un service <span className="premium-gradient-text">personnalisé</span> ?</h2>
+          <p className="premium-cta-subtitle">
             Contactez notre équipe d'experts pour une solution sur-mesure adaptée à vos besoins spécifiques.
           </p>
-          <div className="cta-buttons">
-            <button className="cta-button primary">Nous contacter</button>
-            <button className="cta-button secondary">Demander un devis</button>
+          <div className="premium-cta-buttons">
+            <button className="premium-cta-button premium-primary">Nous contacter</button>
+            <button className="premium-cta-button premium-secondary">Demander un devis</button>
           </div>
         </div>
       </section>
@@ -156,4 +167,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default PremiumServices;

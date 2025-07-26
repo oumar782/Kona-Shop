@@ -7,6 +7,7 @@ import Footer from './composants/Footer';
 import Propos from './Page/Apropos';
 import Service from './Page/service';
 import Accueil from './Page/accueil';
+import Contact from './Page/Contact';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/apropos" element={<Propos />} />
           <Route path="/accueil" element={<Accueil />} />
           <Route path="/Service" element={<Service />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />
