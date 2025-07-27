@@ -8,13 +8,72 @@ import {
   ShoppingBag, 
   SprayCan, 
   Smartphone, 
-  Diamond,
   Shirt,
   Smile,
   Gamepad2,
-  Gem
+  Gem,
+  Home
 } from 'lucide-react';
 import './boutique.css';
+
+// Données des produits par catégorie
+const productsByCategory = {
+  'pret-a-porter': [
+    { id: 1, name: 'Robe de soirée', price: '1200 DH', image: 'https://via.placeholder.com/300x400?text=Robe+Soirée' },
+    { id: 2, name: 'Costume sur mesure', price: '2500 DH', image: 'https://via.placeholder.com/300x400?text=Costume' },
+    { id: 3, name: 'Ensemble décontracté', price: '800 DH', image: 'https://via.placeholder.com/300x400?text=Ensemble' }
+  ],
+  'parfumerie': [
+    { id: 4, name: 'Parfum floral', price: '600 DH', image: 'https://via.placeholder.com/300x400?text=Parfum+Floral' },
+    { id: 5, name: 'Eau de toilette', price: '450 DH', image: 'https://via.placeholder.com/300x400?text=Eau+Toilette' },
+    { id: 6, name: 'Parfum oriental', price: '750 DH', image: 'https://via.placeholder.com/300x400?text=Parfum+Oriental' }
+  ],
+  'cosmetique': [
+    { id: 7, name: 'Crème hydratante', price: '300 DH', image: 'https://via.placeholder.com/300x400?text=Crème' },
+    { id: 8, name: 'Rouge à lèvres', price: '150 DH', image: 'https://via.placeholder.com/300x400?text=Rouge+Lèvres' },
+    { id: 9, name: 'Palette maquillage', price: '400 DH', image: 'https://via.placeholder.com/300x400?text=Palette' }
+  ],
+  'jouets': [
+    { id: 10, name: 'Poupée interactive', price: '350 DH', image: 'https://via.placeholder.com/300x400?text=Poupée' },
+    { id: 11, name: 'Jeu de construction', price: '280 DH', image: 'https://via.placeholder.com/300x400?text=Jeu+Construction' },
+    { id: 12, name: 'Voiture télécommandée', price: '420 DH', image: 'https://via.placeholder.com/300x400?text=Voiture' }
+  ],
+  'electronique': [
+    { id: 13, name: 'Smartphone haut de gamme', price: '4500 DH', image: 'https://via.placeholder.com/300x400?text=Smartphone' },
+    { id: 14, name: 'Casque audio', price: '600 DH', image: 'https://via.placeholder.com/300x400?text=Casque' },
+    { id: 15, name: 'Montre connectée', price: '1200 DH', image: 'https://via.placeholder.com/300x400?text=Montre' }
+  ],
+  'Tapisserie': [
+    { id: 16, name: 'Tapis moderne', price: '1800 DH', image: 'https://via.placeholder.com/300x400?text=Tapis' },
+    { id: 17, name: 'Rideaux luxueux', price: '2200 DH', image: 'https://via.placeholder.com/300x400?text=Rideaux' },
+    { id: 18, name: 'Coussin décoratif', price: '350 DH', image: 'https://via.placeholder.com/300x400?text=Coussin' }
+  ],
+  'bijouterie': [
+    { id: 19, name: 'Collier en or', price: '3200 DH', image: 'https://via.placeholder.com/300x400?text=Collier' },
+    { id: 20, name: 'Bague diamant', price: '5800 DH', image: 'https://via.placeholder.com/300x400?text=Bague' },
+    { id: 21, name: 'Bracelet argent', price: '1500 DH', image: 'https://via.placeholder.com/300x400?text=Bracelet' }
+  ]
+};
+
+const filters = [
+  {
+    title: 'Prix',
+    options: [
+      'Moins de 2000 DH',
+      '2000 - 5000 DH',
+      '5000 - 10000 DH',
+      'Plus de 10000 DH'
+    ]
+  },
+  {
+    title: 'Marque',
+    options: ['Chanel', 'Dior', 'Louis Vuitton', 'Gucci', 'Zara', 'H&M', 'Samsung', 'Apple']
+  },
+  {
+    title: 'Disponibilité',
+    options: ['En stock', 'Précommande']
+  }
+];
 
 const Shop = () => {
   const [viewMode, setViewMode] = useState('grid');
@@ -23,16 +82,19 @@ const Shop = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
-    { id: 'pret-a-porter', name: 'Prêt-à-porter', icon: Shirt, count: 120 },
-    { id: 'parfumerie', name: 'Parfumerie', icon: SprayCan, count: 85 },
-    { id: 'cosmetique', name: 'Cosmétique', icon: Smile, count: 75 },
-    { id: 'jouets', name: 'Jouets', icon: Gamepad2, count: 65 },
-    { id: 'electronique', name: 'Électronique', icon: Smartphone, count: 42 },
-    { id: 'Tapisserie', name: 'Tapisserie', icon: Smartphone, count: 42 },
-    { id: 'bijouterie', name: 'Bijouterie', icon: Gem, count: 33 }
+    { id: 'pret-a-porter', name: 'Prêt-à-porter', icon: Shirt, count: productsByCategory['pret-a-porter'].length },
+    { id: 'parfumerie', name: 'Parfumerie', icon: SprayCan, count: productsByCategory['parfumerie'].length },
+    { id: 'cosmetique', name: 'Cosmétique', icon: Smile, count: productsByCategory['cosmetique'].length },
+    { id: 'jouets', name: 'Jouets', icon: Gamepad2, count: productsByCategory['jouets'].length },
+    { id: 'electronique', name: 'Électronique', icon: Smartphone, count: productsByCategory['electronique'].length },
+    { id: 'Tapisserie', name: 'Tapisserie', icon: Home, count: productsByCategory['Tapisserie'].length },
+    { id: 'bijouterie', name: 'Bijouterie', icon: Gem, count: productsByCategory['bijouterie'].length }
   ];
 
-  
+  // Filtrer les produits selon la catégorie sélectionnée
+  const filteredProducts = selectedCategory === 'all' 
+    ? Object.values(productsByCategory).flat() 
+    : productsByCategory[selectedCategory] || [];
 
   return (
     <div className="shop-container">
@@ -53,7 +115,6 @@ const Shop = () => {
       <section className="search-section">
         <div className="search-container">
           <div className="search-wrapper">
-            {/* Search */}
             <div className="search-box">
               <Search className="search-icon" />
               <input
@@ -65,7 +126,6 @@ const Shop = () => {
               />
             </div>
 
-            {/* View Mode and Sort */}
             <div className="view-controls">
               <div className="view-toggle">
                 <button
@@ -103,17 +163,15 @@ const Shop = () => {
       <section className="categories-section">
         <div className="categories-container">
           <div className="categories-grid">
+          
+            
             {categories.map((category) => (
               <div
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`category-card ${
-                  selectedCategory === category.id ? 'active' : ''
-                }`}
+                className={`category-card ${selectedCategory === category.id ? 'active' : ''}`}
               >
-                <category.icon className={`category-icon ${
-                  selectedCategory === category.id ? 'active' : ''
-                }`} />
+                <category.icon className={`category-icon ${selectedCategory === category.id ? 'active' : ''}`} />
                 <h3>{category.name}</h3>
                 <span>{category.count} produits</span>
               </div>
@@ -122,7 +180,7 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Products */}
+      {/* Products Section */}
       <section className="products-section">
         <div className="products-container">
           {/* Mobile Filters */}
@@ -152,423 +210,238 @@ const Shop = () => {
           <div className="products-wrapper">
             {/* Sidebar Filters */}
             <div className="sidebar-filters">
-           
+              {filters.map((filter, index) => (
+                <div key={index} className="filter-group">
+                  <h4>{filter.title}</h4>
+                  <div className="filter-options">
+                    {filter.options.map((option, optIndex) => (
+                      <label key={optIndex} className="filter-option">
+                        <input type="checkbox" />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Products Grid */}
             <div className="products-grid">
-              {/* Ici vous pouvez ajouter vos produits */}
-              <div className="product-placeholder">
-                <p>Vos produits seront affichés ici</p>
-              </div>
+              {filteredProducts.length > 0 ? (
+                viewMode === 'grid' ? (
+                  <div className="grid-view">
+                    {filteredProducts.map((product) => (
+                      <div key={product.id} className="product-card">
+                        <div className="product-image-container">
+                          <img src={product.image} alt={product.name} className="product-image" />
+                          <button className="add-to-cart">Ajouter au panier</button>
+                        </div>
+                        <div className="product-info">
+                          <h3>{product.name}</h3>
+                          <p className="product-price">{product.price}</p>
+                          <button className="view-details">Voir détails</button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="list-view">
+                    {filteredProducts.map((product) => (
+                      <div key={product.id} className="product-item">
+                        <img src={product.image} alt={product.name} className="product-thumbnail" />
+                        <div className="product-details">
+                          <h3>{product.name}</h3>
+                          <p className="product-price">{product.price}</p>
+                          <p className="product-description">Description du produit ici...</p>
+                          <div className="product-actions">
+                            <button className="add-to-cart">Ajouter au panier</button>
+                            <button className="view-details">Voir détails</button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )
+              ) : (
+                <div className="no-products">
+                  <p>Aucun produit trouvé dans cette catégorie.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       <style jsx>{`
-        /* Base Styles */
-        .shop-container {
-          min-height: 100vh;
-          background-color: #f9f9f9;
-          font-family: 'Montserrat', sans-serif;
-          color: #333;
+        /* ... (conservez tous les styles précédents) ... */
+
+        /* Product Grid View */
+        .grid-view {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 25px;
+          width: 100%;
         }
 
-        /* Hero Section */
-        .shop-hero {
+        .product-card {
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image-container {
           position: relative;
-          padding: 80px 20px;
-          background: linear-gradient(135deg, #0a2540, #1a4b6d, #d4af37);
-          text-align: center;
+          height: 200px;
           overflow: hidden;
         }
 
-        .hero-overlay {
-          position: absolute;
-          inset: 0;
-          background: url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') no-repeat center center;
-          background-size: cover;
-          opacity: 0.1;
-        }
-
-        .hero-content {
-          position: relative;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .shop-hero h1 {
-          font-size: 3.5rem;
-          font-weight: 700;
-          color: white;
-          margin-bottom: 20px;
-          animation: fadeIn 0.8s ease-out;
-        }
-
-        .luxury-text {
-          background: linear-gradient(90deg, #d4af37, #f5d6a3, #d4af37);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          background-size: 200% auto;
-          animation: shimmer 3s linear infinite;
-        }
-
-        .shop-hero p {
-          font-size: 1.25rem;
-          color: rgba(255, 255, 255, 0.9);
-          max-width: 800px;
-          margin: 0 auto 30px;
-          line-height: 1.6;
-          animation: fadeIn 1s ease-out 0.2s both;
-        }
-
-        /* Search Section */
-        .search-section {
-          padding: 20px 0;
-          background-color: white;
-          border-bottom: 1px solid #eee;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .search-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        .search-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        @media (min-width: 992px) {
-          .search-wrapper {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-          }
-        }
-
-        .search-box {
-          position: relative;
-          flex: 1;
-          max-width: 600px;
-        }
-
-        .search-icon {
-          position: absolute;
-          left: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #999;
-          width: 20px;
-          height: 20px;
-        }
-
-        .search-input {
-          width: 100%;
-          padding: 12px 20px 12px 45px;
-          border: 2px solid #e0e0e0;
-          border-radius: 12px;
-          font-size: 1rem;
-          transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-          outline: none;
-          border-color: #d4af37;
-          box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-        }
-
-        .view-controls {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-        }
-
-        .view-toggle {
-          display: flex;
-          background-color: #f5f5f5;
-          border-radius: 12px;
-          padding: 4px;
-        }
-
-        .view-toggle button {
-          background: none;
-          border: none;
-          padding: 6px 12px;
-          cursor: pointer;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.3s ease;
-        }
-
-        .view-toggle button.active {
-          background-color: white;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .view-icon {
-          width: 18px;
-          height: 18px;
-          color: #555;
-        }
-
-        .view-toggle button.active .view-icon {
-          color: #d4af37;
-        }
-
-        .sort-button, .filter-button {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 16px;
-          background-color: transparent;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          font-size: 0.9rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .button-icon {
-          width: 16px;
-          height: 16px;
-        }
-
-        .sort-button:hover, .filter-button:hover {
-          border-color: #d4af37;
-          color: #d4af37;
-        }
-
-        /* Categories Section */
-        .categories-section {
-          padding: 30px 0;
-          background-color: #f5f5f5;
-        }
-
-        .categories-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        .categories-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 15px;
-        }
-
-        @media (min-width: 768px) {
-          .categories-grid {
-            grid-template-columns: repeat(4, 1fr);
-          }
-        }
-
-        @media (min-width: 992px) {
-          .categories-grid {
-            grid-template-columns: repeat(7, 1fr);
-          }
-        }
-
-        .category-card {
-          background-color: white;
-          padding: 20px 15px;
-          border-radius: 12px;
-          text-align: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .category-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .category-card.active {
-          border: 2px solid #d4af37;
-          background-color: rgba(212, 175, 55, 0.05);
-        }
-
-        .category-icon {
-          width: 30px;
-          height: 30px;
-          margin: 0 auto 15px;
-          color: #0a2540;
-          transition: all 0.3s ease;
-        }
-
-        .category-card.active .category-icon {
-          color: #d4af37;
-        }
-
-        .category-card h3 {
-          font-size: 0.9rem;
-          font-weight: 600;
-          margin-bottom: 5px;
-          color: #0a2540;
-        }
-
-        .category-card span {
-          font-size: 0.8rem;
-          color: #777;
-        }
-
-        /* Products Section */
-        .products-section {
-          padding: 40px 0;
-        }
-
-        .products-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        .products-wrapper {
-          display: flex;
-          gap: 30px;
-          position: relative;
-        }
-
-        /* Sidebar Filters */
-        .sidebar-filters {
-          width: 250px;
-          display: none;
-        }
-
-        @media (min-width: 992px) {
-          .sidebar-filters {
-            display: block;
-          }
-        }
-
-        .filter-group {
-          background-color: white;
-          padding: 20px;
-          border-radius: 12px;
-          margin-bottom: 20px;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .filter-group h4 {
-          font-size: 1rem;
-          font-weight: 600;
-          margin-bottom: 15px;
-          color: #0a2540;
-        }
-
-        .filter-options {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .filter-option {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 0.9rem;
-          cursor: pointer;
-          color: #555;
-        }
-
-        .filter-option input {
-          width: 16px;
-          height: 16px;
-          accent-color: #d4af37;
-          cursor: pointer;
-        }
-
-        /* Mobile Filters */
-        .mobile-filters {
-          position: fixed;
-          top: 0;
-          left: 0;
+        .product-image {
           width: 100%;
           height: 100%;
-          background-color: white;
-          z-index: 1000;
-          padding: 20px;
-          overflow-y: auto;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease;
+          object-fit: cover;
+          transition: transform 0.5s ease;
         }
 
-        .mobile-filters.show {
-          transform: translateX(0);
+        .product-card:hover .product-image {
+          transform: scale(1.05);
         }
 
-        .filters-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 30px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid #eee;
-        }
-
-        .filters-header h3 {
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: #0a2540;
-        }
-
-        .filters-header button {
-          background: none;
-          border: none;
-          font-size: 1.5rem;
-          cursor: pointer;
-          color: #777;
-        }
-
-        .apply-filters {
+        .add-to-cart {
+          position: absolute;
+          bottom: -50px;
+          left: 0;
           width: 100%;
-          padding: 12px;
+          padding: 10px;
           background-color: #d4af37;
           color: white;
           border: none;
-          border-radius: 8px;
-          font-weight: 600;
-          margin-top: 20px;
+          transition: bottom 0.3s ease;
           cursor: pointer;
-          transition: background-color 0.3s ease;
+          font-weight: 600;
         }
 
-        .apply-filters:hover {
-          background-color: #c19b2e;
+        .product-card:hover .add-to-cart {
+          bottom: 0;
         }
 
-        /* Products Grid */
-        .products-grid {
-          flex: 1;
-          min-height: 500px;
+        .product-info {
+          padding: 15px;
+        }
+
+        .product-info h3 {
+          margin: 0 0 10px;
+          font-size: 1rem;
+          color: #0a2540;
+        }
+
+        .product-price {
+          font-weight: bold;
+          color: #d4af37;
+          margin: 0 0 15px;
+        }
+
+        .view-details {
+          background: none;
+          border: 1px solid #d4af37;
+          color: #d4af37;
+          padding: 8px 15px;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0.9rem;
+        }
+
+        .view-details:hover {
+          background-color: #d4af37;
+          color: white;
+        }
+
+        /* Product List View */
+        .list-view {
           display: flex;
-          align-items: center;
-          justify-content: center;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
         }
 
-        .product-placeholder {
+        .product-item {
+          display: flex;
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-thumbnail {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+        }
+
+        .product-details {
+          flex: 1;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .product-details h3 {
+          margin: 0 0 10px;
+          font-size: 1.1rem;
+          color: #0a2540;
+        }
+
+        .product-description {
+          color: #666;
+          font-size: 0.9rem;
+          margin: 10px 0;
+          flex-grow: 1;
+        }
+
+        .product-actions {
+          display: flex;
+          gap: 10px;
+        }
+
+        /* No Products */
+        .no-products {
           text-align: center;
+          padding: 50px;
           color: #666;
           font-size: 1.2rem;
+          width: 100%;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) {
+          .product-item {
+            flex-direction: column;
+          }
+          
+          .product-thumbnail {
+            width: 100%;
+            height: 200px;
+          }
+          
+          .product-actions {
+            flex-direction: column;
+          }
+          
+          .grid-view {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
 
-        @keyframes shimmer {
-          0% { background-position: 0% center; }
-          100% { background-position: 200% center; }
+        @media (max-width: 480px) {
+          .grid-view {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
     </div>

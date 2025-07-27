@@ -5,16 +5,19 @@
     min-height: 100vh;
     background-color: #f9f9f9;
     font-family: 'Montserrat', sans-serif;
-    color: #333;
+    color: #0e0606;
   }
   
   /* Hero Section */
   .shop-hero {
     position: relative;
     padding: 80px 20px;
-    background: linear-gradient(135deg, #0a2540, #1a4b6d, #d4af37);
+    background: linear-gradient(135deg, #0b0d0f, #131414, #0b0b0a);
     text-align: center;
     overflow: hidden;
+    height: 79vh;
+    border-radius: 50px;
+
   }
   
   .hero-overlay {
@@ -35,8 +38,9 @@
     font-size: 3.5rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 20px;
+    margin-top: 55px;
     animation: fadeIn 0.8s ease-out;
+    
   }
   
   .luxury-text {
