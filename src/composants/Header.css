@@ -98,8 +98,8 @@
   }
 }
 @keyframes logoHighlight {
-  0% { color: #646cff; }
-  100% { color: #213547; }
+  0% { color: #d3dd0f; }
+  100% { color: #b8b80f; }
 }
 
 .header2026__nav {
@@ -157,9 +157,10 @@
   width: 28px;
   height: 3px;
   margin: 4px 0;
-  background: #646cff;
+  background: #afba08;
   border-radius: 2px;
   transition: all 0.4s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 12px 0 rgba(100,108,255,1);
 }
 .header2026__burger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);

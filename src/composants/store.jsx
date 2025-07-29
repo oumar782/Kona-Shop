@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Shirt, Zap, Diamond, Palette, Gamepad2, ArrowRight,Crown,CheckCircle } from 'lucide-react';
+import { Sparkles, Shirt, Zap, Diamond, Palette, Gamepad2, ArrowRight, Crown, CheckCircle, Car } from 'lucide-react';
 import './store.css';
 
-const store= () => {
+const EliteCategories = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -10,127 +10,124 @@ const store= () => {
     return () => setIsVisible(false);
   }, []);
 
-  
   const categories = [
     { 
-      name: "Perfumery", 
+      name: "Parfumerie", 
       icon: Sparkles, 
-      count: "120+ Items", 
-      color: "linear-gradient(135deg, rgba(254,243,199,0.8) 0%, rgba(254,249,195,0.9) 100%)",
-      accentColor: "#F59E0B"
+      description: "Senteurs exclusives qui captivent les sens", 
+      bgGradient: "radial-gradient(circle at 30% 30%, rgba(254,243,199,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Fashion", 
+      name: "Prêt-à-porter", 
       icon: Shirt, 
-      count: "300+ Items", 
-      color: "linear-gradient(135deg, rgba(243,244,246,0.8) 0%, rgba(241,245,249,0.9) 100%)",
-      accentColor: "#4B5563"
+      description: "Silhouettes taillées pour l'excellence", 
+      bgGradient: "radial-gradient(circle at 70% 30%, rgba(243,244,246,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Electronics", 
+      name: "Électronique", 
       icon: Zap, 
-      count: "200+ Items", 
-      color: "linear-gradient(135deg, rgba(239,246,255,0.8) 0%, rgba(224,231,255,0.9) 100%)",
-      accentColor: "#3B82F6"
+      description: "Innovation au service du raffinement", 
+      bgGradient: "radial-gradient(circle at 30% 70%, rgba(239,246,255,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Jewelry", 
+      name: "Bijouterie", 
       icon: Diamond, 
-      count: "80+ Items", 
-      color: "linear-gradient(135deg, rgba(254,243,199,0.8) 0%, rgba(255,237,213,0.9) 100%)",
-      accentColor: "#D97706"
+      description: "Éclat minéral, perfection artisanale", 
+      bgGradient: "radial-gradient(circle at 70% 70%, rgba(254,243,199,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Cosmetics", 
+      name: "Cosmétiques", 
       icon: Palette, 
-      count: "150+ Items", 
-      color: "linear-gradient(135deg, rgba(252,231,243,0.8) 0%, rgba(255,228,230,0.9) 100%)",
-      accentColor: "#EC4899"
+      description: "Beauté transcendante, formulations rares", 
+      bgGradient: "radial-gradient(circle at 50% 30%, rgba(252,231,243,0.15) 0%, transparent 50%)"
     },
     { 
       name: "Tapisserie", 
       icon: Palette, 
-      count: "150+ Items", 
-      color: "linear-gradient(135deg, rgba(252,231,243,0.8) 0%, rgba(255,228,230,0.9) 100%)",
-      accentColor: "#EC4899"
+      description: "Textures précieuses, motifs iconiques", 
+      bgGradient: "radial-gradient(circle at 50% 70%, rgba(252,231,243,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Toys", 
+      name: "Jouetterie", 
       icon: Gamepad2, 
-      count: "90+ Items", 
-      color: "linear-gradient(135deg, rgba(236,253,245,0.8) 0%, rgba(209,250,229,0.9) 100%)",
-      accentColor: "#10B981"
+      description: "Plaisir raffiné, design intemporel", 
+      bgGradient: "radial-gradient(circle at 30% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)"
+    },
+    { 
+      name: "Automobile", 
+      icon: Car, 
+      description: "Puissance discrète, lignes sculpturales", 
+      bgGradient: "radial-gradient(circle at 70% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)"
     }
   ];
 
-
   return (
-    <section className={`premium-selection ${isVisible ? 'visible' : ''}`}>
-      {/* Blobs animés en arrière-plan */}
-      <div className="gold-blob"></div>
-      <div className="black-blob"></div>
-      <div className="gold-blob-small"></div>
+    <section className={`elite-showcase ${isVisible ? 'elite-showcase--visible' : ''}`}>
+      <div className="elite-showcase__gold-veil"></div>
+      <div className="elite-showcase__diamond-pattern"></div>
       
-      <div className="container">
-        <div className="section-header">
-          <div className="exclusive-badge">
-            <Crown className="badge-icon" />
-            <span>Curated Excellence</span>
-            <div className="badge-sparkles">
-              {[...Array(3)].map((_, i) => <div key={i} className="sparkle"></div>)}
+      <div className="elite-showcase__container">
+        <div className="elite-showcase__header">
+          <div className="elite-crown">
+            <div className="elite-crown__content">
+              <Crown className="elite-crown__icon" />
+              <span>Raretés Curatées</span>
+              <div className="elite-crown__light"></div>
             </div>
           </div>
           
-          <h1>
-            <span className="title-main">Selection d'Exception</span>
-            <span className="title-sub">Produits d'Excellence</span>
-            <div className="title-underline"></div>
-          </h1>
+          <div className="elite-titles">
+            <h1 className="elite-titles__main">
+              <span>Artéfacts</span>
+              <span>d'Exception</span>
+            </h1>
+            <div className="elite-titles__divider"></div>
+            <h2 className="elite-titles__sub">Oeuvres uniques pour connaisseurs</h2>
+          </div>
           
-          <p className="section-description">
-            Pièces rigoureusement sélectionnées, incarnant l'ultime expression du luxe contemporain
+          <p className="elite-showcase__description">
+            Chaque pièce est le fruit d'une collaboration entre maîtres artisans et visionnaires contemporains
           </p>
         </div>
 
-        <div className="selection-grid">
-          {categories.map((item, index) => {
-            const Icon = item.icon;
+        <div className="elite-gallery">
+          {categories.map((category, index) => {
+            const Icon = category.icon;
             return (
-              <div 
-                key={item.name}
-                className="selection-card"
+              <article 
+                key={category.name}
+                className="elite-artifact"
                 style={{ 
-                  '--accent-color': item.accentColor,
-                  animationDelay: `${index * 150}ms` 
+                  '--artifact-delay': `${index * 100}ms`,
+                  '--artifact-bg': category.bgGradient
                 }}
               >
-                <div className="card-background" style={{ background: item.color }}></div>
-                <div className="card-glow" style={{ backgroundColor: item.accentColor }}></div>
-                
-                <div className="card-content">
-                  <div className="card-header">
-                    <div className="icon-wrapper">
-                      <Icon className="card-icon" />
-                      <div className="icon-halo"></div>
-                    </div>
-                    <div className="verification-badge">
-                      <CheckCircle size={18} />
-                    </div>
-                  </div>
+                <div className="elite-artifact__canvas">
+                  <div className="elite-artifact__background"></div>
+                  <div className="elite-artifact__reflection"></div>
                   
-                  <h3>{item.name}</h3>
-                  <p className="item-count">{item.count}</p>
-                  
-                  <div className="discover-link">
-                    <span>Découvrir</span>
-                    <div className="arrow-wrapper">
-                      <ArrowRight className="arrow-icon" />
+                  <div className="elite-artifact__content">
+                    <div className="elite-artifact__badge">
+                      <div className="elite-artifact__icon-frame">
+                        <Icon className="elite-artifact__icon" />
+                      </div>
+                      <CheckCircle className="elite-artifact__certification" />
                     </div>
+                    
+                    <div className="elite-artifact__details">
+                      <h3 className="elite-artifact__title">{category.name}</h3>
+                      <p className="elite-artifact__description">{category.description}</p>
+                    </div>
+                    
+                    <button className="elite-artifact__explore">
+                      <span>Accéder à la collection</span>
+                      <div className="elite-artifact__arrow">
+                        <ArrowRight className="elite-artifact__arrow-icon" />
+                      </div>
+                    </button>
                   </div>
                 </div>
-                
-                <div className="card-decoration"></div>
-              </div>
+              </article>
             );
           })}
         </div>
@@ -139,4 +136,4 @@ const store= () => {
   );
 };
 
-export default store;
+export default EliteCategories;

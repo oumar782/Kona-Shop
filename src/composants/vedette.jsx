@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Star, Heart, ChevronLeft, ChevronRight, Gem, Sparkles, Watch, Headphones } from 'lucide-react';
 import './veddette.css';
 
-const LuxuryCarousel = () => {
+const LuxuryShowcase = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const carouselRef = useRef(null);
+  const showcaseRef = useRef(null);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const LuxuryCarousel = () => {
     return () => clearInterval(interval);
   }, [isHovered, currentSlide]);
 
-  const featuredProducts = [
+  const featuredItems = [
     {
       id: 1,
       name: "Montre Élite Diamant",
@@ -41,7 +41,7 @@ const LuxuryCarousel = () => {
       rating: 5,
       badge: "Édition Limitée",
       Icon: Watch,
-      color: "linear-gradient(135deg, rgba(254,243,199,0.15) 0%, rgba(255,247,205,0.2) 100%)"
+      accentColor: "linear-gradient(135deg, rgba(254,243,199,0.15) 0%, rgba(255,247,205,0.2) 100%)"
     },
     {
       id: 2,
@@ -53,7 +53,7 @@ const LuxuryCarousel = () => {
       rating: 5,
       badge: "Best-seller",
       Icon: Sparkles,
-      color: "linear-gradient(135deg, rgba(252,231,243,0.15) 0%, rgba(255,228,230,0.2) 100%)"
+      accentColor: "linear-gradient(135deg, rgba(252,231,243,0.15) 0%, rgba(255,228,230,0.2) 100%)"
     },
     {
       id: 3,
@@ -65,7 +65,7 @@ const LuxuryCarousel = () => {
       rating: 5,
       badge: "Nouveauté",
       Icon: Gem,
-      color: "linear-gradient(135deg, rgba(245,245,245,0.15) 0%, rgba(255,255,255,0.2) 100%)"
+      accentColor: "linear-gradient(135deg, rgba(245,245,245,0.15) 0%, rgba(255,255,255,0.2) 100%)"
     },
     {
       id: 4,
@@ -77,16 +77,16 @@ const LuxuryCarousel = () => {
       rating: 5,
       badge: "Choix Éditeur",
       Icon: Headphones,
-      color: "linear-gradient(135deg, rgba(239,246,255,0.15) 0%, rgba(224,231,255,0.2) 100%)"
+      accentColor: "linear-gradient(135deg, rgba(239,246,255,0.15) 0%, rgba(224,231,255,0.2) 100%)"
     }
   ];
 
   const goToNext = () => {
-    setCurrentSlide(prev => (prev === featuredProducts.length - 1 ? 0 : prev + 1));
+    setCurrentSlide(prev => (prev === featuredItems.length - 1 ? 0 : prev + 1));
   };
 
   const goToPrev = () => {
-    setCurrentSlide(prev => (prev === 0 ? featuredProducts.length - 1 : prev - 1));
+    setCurrentSlide(prev => (prev === 0 ? featuredItems.length - 1 : prev - 1));
   };
 
   const goToSlide = (index) => {
@@ -110,39 +110,44 @@ const LuxuryCarousel = () => {
     setTouchEnd(null);
   };
 
+  const handleAddToCart = (productId) => {
+    // Fonction pour ajouter au panier
+    console.log(`Produit ${productId} ajouté au panier`);
+  };
+
   return (
     <section 
-      className={`luxury-carousel ${isVisible ? 'visible' : ''}`}
-      ref={carouselRef}
+      className={`prestige-showcase ${isVisible ? 'prestige-showcase--visible' : ''}`}
+      ref={showcaseRef}
     >
-      <div className="luxury-decoration diamond-pattern"></div>
-      <div className="luxury-decoration gold-blob"></div>
-      <div className="luxury-decoration black-blob"></div>
+      <div className="prestige-decoration prestige-decoration--diamond"></div>
+      <div className="prestige-decoration prestige-decoration--gold"></div>
+      <div className="prestige-decoration prestige-decoration--dark"></div>
       
-      <div className="container">
-        <div className="section-header">
-          <div className="exclusive-badge">
-            <div className="badge-content">
-              <Star className="badge-icon" />
+      <div className="prestige-container">
+        <div className="prestige-header">
+          <div className="prestige-badge">
+            <div className="prestige-badge__content">
+              <Star className="prestige-badge__icon" />
               <span>Collection Exclusive</span>
             </div>
-            <div className="badge-glow"></div>
+            <div className="prestige-badge__glow"></div>
           </div>
           
-          <h2>
-            <span className="title-main">Sélection d'Exception</span>
+          <h2 className="prestige-title">
+            <span className="prestige-title__main">Sélection d'Exception</span>
             {!isMobile && (
-              <span className="title-sub">L'Élégance Redéfinie</span>
+              <span className="prestige-title__sub">L'Élégance Redéfinie</span>
             )}
           </h2>
           
-          <p className="section-description">
+          <p className="prestige-description">
             Découvrez nos pièces les plus emblématiques, où l'artisanat rencontre l'innovation
           </p>
         </div>
 
         <div 
-          className="carousel-container"
+          className="prestige-carousel"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={handleTouchStart}
@@ -150,77 +155,75 @@ const LuxuryCarousel = () => {
           onTouchEnd={handleTouchEnd}
         >
           <div 
-            className="carousel-track" 
+            className="prestige-carousel__track" 
             style={{ 
               transform: `translateX(-${currentSlide * 100}%)`,
               transition: isHovered ? 'transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)' : 'transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
             }}
           >
-            {featuredProducts.map((product) => {
-              const Icon = product.Icon;
+            {featuredItems.map((item) => {
+              const Icon = item.Icon;
               return (
-                <div key={product.id} className="carousel-slide">
-                  <div className="product-grid">
-                    <div className="product-image-container">
-                      <div className="image-wrapper" style={{ background: product.color }}>
+                <div key={item.id} className="prestige-carousel__slide">
+                  <div className="prestige-product">
+                    <div className="prestige-product__visual">
+                      <div className="prestige-product__frame" style={{ background: item.accentColor }}>
                         <img 
-                          src={`${product.image}?auto=compress&cs=tinysrgb&w=${isMobile ? 400 : isTablet ? 600 : 800}`}
-                          alt={product.name} 
-                          className="product-image" 
+                          src={`${item.image}?auto=compress&cs=tinysrgb&w=${isMobile ? 400 : isTablet ? 600 : 800}`}
+                          alt={item.name} 
+                          className="prestige-product__image" 
                           loading="lazy"
                           width={isMobile ? 400 : isTablet ? 600 : 800}
                           height={isMobile ? 400 : isTablet ? 600 : 800}
                         />
-                        <div className="product-badge jewel-style sparkle">{product.badge}</div>
-                        <div className="image-overlay"></div>
-                        <div className="image-shine"></div>
+                        <div className="prestige-product__tag prestige-product__tag--jewel">{item.badge}</div>
+                        <div className="prestige-product__overlay"></div>
+                        <div className="prestige-product__shine"></div>
                       </div>
                     </div>
 
-                    <div className="product-details">
-                      <div className="category-tag">
-                        <Icon className="category-icon" size={isMobile ? 14 : 16} />
-                        <span>{product.category}</span>
+                    <div className="prestige-product__details">
+                      <div className="prestige-product__category">
+                        <Icon className="prestige-product__category-icon" size={isMobile ? 14 : 16} />
+                        <span>{item.category}</span>
                       </div>
                       
-                      <h3 className="product-name">{product.name}</h3>
+                      <h3 className="prestige-product__name">{item.name}</h3>
                       
-                      <div className="rating-container">
-                        {[...Array(product.rating)].map((_, i) => (
-                          <Star key={i} className="star-icon" fill="currentColor" />
+                      <div className="prestige-product__rating">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <Star key={i} className="prestige-product__star" fill="currentColor" />
                         ))}
-                        <span className="rating-text">Élu meilleur produit</span>
+                        <span className="prestige-product__rating-text">Élu meilleur produit</span>
                       </div>
                       
-                      <p className="product-description">
+                      <p className="prestige-product__description">
                         Pièce d'exception méticuleusement conçue par nos artisans. Chaque détail reflète notre engagement envers l'excellence.
                       </p>
 
-                      <div className="price-container">
-                        <div className="price-wrapper">
-                          <span className="current-price">{product.price}</span>
-                          <span className="original-price">{product.originalPrice}</span>
+                      <div className="prestige-product__pricing">
+                        <div className="prestige-product__price-wrapper">
+                          <span className="prestige-product__current-price">{item.price}</span>
+                          <span className="prestige-product__original-price">{item.originalPrice}</span>
                         </div>
-                        <span className="discount-badge">ÉCONOMISEZ 25%</span>
+                        <span className="prestige-product__discount">ÉCONOMISEZ 25%</span>
                       </div>
 
-                      <div className="action-buttons">
-  <button 
-    className="add-to-cart"
-    onClick={() => handleAddToCart(product.id)}
-    aria-label={`Ajouter ${product.name} au panier`}
-  >
-    <span>Ajouter au Panier</span>
-    <div className="button-hover"></div>
-    {/* Option: Ajouter une icône */}
-    {/* <ShoppingCart className="cart-icon" size={18} /> */}
-  </button>
-  
-  <button className="wishlist">
-    <Heart className="heart-icon" />
-    {!isMobile && <span>Liste de Souhaits</span>}
-  </button>
-</div>
+                      <div className="prestige-product__actions">
+                        <button 
+                          className="prestige-button prestige-button--primary"
+                          onClick={() => handleAddToCart(item.id)}
+                          aria-label={`Ajouter ${item.name} au panier`}
+                        >
+                          <span>Ajouter au Panier</span>
+                          <div className="prestige-button__hover"></div>
+                        </button>
+                        
+                        <button className="prestige-button prestige-button--secondary">
+                          <Heart className="prestige-button__icon" />
+                          {!isMobile && <span>Liste de Souhaits</span>}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -232,31 +235,31 @@ const LuxuryCarousel = () => {
             <>
               <button 
                 onClick={goToPrev} 
-                className="carousel-button prev"
+                className="prestige-carousel__nav prestige-carousel__nav--prev"
                 aria-label="Précédent"
               >
-                <ChevronLeft className="arrow-icon" />
+                <ChevronLeft className="prestige-carousel__nav-icon" />
               </button>
               
               <button 
                 onClick={goToNext} 
-                className="carousel-button next"
+                className="prestige-carousel__nav prestige-carousel__nav--next"
                 aria-label="Suivant"
               >
-                <ChevronRight className="arrow-icon" />
+                <ChevronRight className="prestige-carousel__nav-icon" />
               </button>
             </>
           )}
 
-          <div className="carousel-indicators">
-            {featuredProducts.map((_, index) => (
+          <div className="prestige-carousel__indicators">
+            {featuredItems.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                className={`prestige-carousel__indicator ${index === currentSlide ? 'prestige-carousel__indicator--active' : ''}`}
                 aria-label={`Aller au slide ${index + 1}`}
               >
-                <div className="indicator-progress"></div>
+                <div className="prestige-carousel__indicator-progress"></div>
               </button>
             ))}
           </div>
@@ -266,4 +269,4 @@ const LuxuryCarousel = () => {
   );
 };
 
-export default LuxuryCarousel;
+export default LuxuryShowcase;
