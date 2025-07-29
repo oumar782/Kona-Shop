@@ -9,22 +9,22 @@ const apropos = () => {
     {
       icon: Shield,
       title: "Fiabilité",
-      description: "Des produits authentiques avec garantie officielle pour votre tranquillité d'esprit."
+      description: "Kona Shop, c’est la promesse tenue : fiabilité et sérénité à chaque commande, sans compromis."
     },
     {
       icon: Award,
       title: "Excellence",
-      description: "Un service client exceptionnel et des produits de qualité supérieure depuis 2015."
+      description: " L’excellence, ce n’est pas un objectif, c’est notre standard pour vous offrir que le meilleur. "
     },
     {
       icon: Users,
       title: "Proximité",
-      description: "Une équipe marocaine dédiée à votre satisfaction, parlant votre langue."
+      description: "Plus qu’une boutique, un partenaire de confiance, proche de vos envies et de vos besoins. "
     },
     {
       icon: Globe,
       title: "Innovation",
-      description: "Les dernières technologies mondiales adaptées au marché marocain."
+      description: "On invente demain, aujourd’hui, pour que votre expérience soit toujours un pas en avant. "
     }
   ];
 

@@ -42,7 +42,7 @@ const EliteCategories = () => {
       bgGradient: "radial-gradient(circle at 50% 30%, rgba(252,231,243,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Tapisserie", 
+      name: "Decoration maison", 
       icon: Palette, 
       description: "Textures précieuses, motifs iconiques", 
       bgGradient: "radial-gradient(circle at 50% 70%, rgba(252,231,243,0.15) 0%, transparent 50%)"
@@ -54,7 +54,7 @@ const EliteCategories = () => {
       bgGradient: "radial-gradient(circle at 30% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)"
     },
     { 
-      name: "Automobile", 
+      name: "Accesoires automobile", 
       icon: Car, 
       description: "Puissance discrète, lignes sculpturales", 
       bgGradient: "radial-gradient(circle at 70% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)"

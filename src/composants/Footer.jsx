@@ -16,10 +16,13 @@ const ArrowRightIcon = () => (
 
 const LuxuryFooter = ({ categories = [] }) => {
   const defaultCategories = [
-    { name: 'Jewelry' },
-    { name: 'Perfumery' },
-    { name: 'Fashion' },
-    { name: 'Electronics' },
+    { name: 'Bijouterie' },
+    { name: 'Parfumerie' },
+    { name: 'Pret a porter ' },
+    { name: 'Electroniques' },
+    { name: 'Tapisserie' },
+    { name: 'Jouetterie' },
+    { name: 'Cosmétiques' },
     ...categories
   ].slice(0, 4);
 

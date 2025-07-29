@@ -10,10 +10,11 @@ const AboutSection = () => {
           <div className="about-text">
             <h2 className="about-title">Notre Mission</h2>
             <p className="about-description">
-              Depuis 2015, TechMaroc révolutionne l'accès à la technologie au Maroc. 
-              Notre mission est de démocratiser les produits high-tech en offrant 
-              une expérience d'achat exceptionnelle, des produits authentiques et 
-              un service client de classe mondiale.
+            Faire du shopping un plaisir simple, accessible et unique pour tous.
+            Rassembler en un seul endroit tout ce qui embellit la vie, du style, des senteurs, des idées déco, de la technologie et bien plus encore.
+            </p>
+            <p className="inspi" >
+            Parce qu’on croit qu’on a tous envie de se faire plaisir, d’offrir, de surprendre… et que ça doit être facile, fun et inspirant. 
             </p>
           </div>
 
@@ -32,12 +33,12 @@ const AboutSection = () => {
               {
                 icon: Award,
                 title: "Excellence Reconnue",
-                description: "Prix du meilleur e-commerce tech 2023 au Maroc."
+                description: " Notre plus grande fierté, c’est la confiance et la reconnaissance de nos clients."
               },
               {
                 icon: Globe,
                 title: "Vision Globale",
-                description: "Les dernières innovations mondiales au Maroc."
+                description: " Tout ce qui rend la vie plus belle, à portée de clic."
               }
             ].map((item, index) => (
               <div key={index} className="feature-item">

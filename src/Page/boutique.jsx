@@ -88,6 +88,7 @@ const Shop = () => {
     { id: 'jouets', name: 'Jouets', icon: Gamepad2, count: productsByCategory['jouets'].length },
     { id: 'electronique', name: 'Électronique', icon: Smartphone, count: productsByCategory['electronique'].length },
     { id: 'Tapisserie', name: 'Tapisserie', icon: Home, count: productsByCategory['Tapisserie'].length },
+    { id: 'Accesoires automobile', name: 'Accesoires automobile', icon: Home, count: productsByCategory['Tapisserie'].length },
     { id: 'bijouterie', name: 'Bijouterie', icon: Gem, count: productsByCategory['bijouterie'].length }
   ];
 
