@@ -11,21 +11,21 @@
 .ks-footer {
   background-color: var(--ks-dark);
   color: var(--ks-light);
-  padding: 3rem 0 1.5rem; /* Taille réduite */
+  padding: 3rem 0 1.5rem;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .ks-footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem; /* Espacement réduit */
+  padding: 0 1.5rem;
 }
 
 /* Grid Layout */
 .ks-footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colonnes plus étroites */
-  gap: 2rem; /* Espacement réduit */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -40,27 +40,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 1rem; /* Espacement réduit */
+  margin-bottom: 1rem;
 }
 
 .ks-footer-logo {
-  height: 40px; /* Taille réduite */
+  height: 40px;
   width: auto;
-  object-fit: contain; /* Garantit que le logo est bien visible */
+  object-fit: contain;
   border-radius: 10px;
-
 }
 
 .ks-footer-crown-icon {
   color: var(--ks-gold);
-  width: 24px; /* Taille réduite */
+  width: 24px;
   height: 24px;
 }
 
 .ks-footer-brand-name {
-  font-size: 1.5rem; /* Taille réduite */
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 0.75rem; /* Espacement réduit */
+  margin-bottom: 0.75rem;
   background: linear-gradient(to right, #fff 50%, var(--ks-gold) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -71,7 +70,7 @@
   color: var(--ks-gray);
   line-height: 1.5;
   font-size: 0.9rem;
-  max-width: 280px; /* Largeur réduite */
+  max-width: 280px;
 }
 
 /* Colonnes */
@@ -81,10 +80,10 @@
 }
 
 .ks-footer-title {
-  font-size: 1.1rem; /* Taille réduite */
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--ks-gold);
-  margin-bottom: 1rem; /* Espacement réduit */
+  margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.5rem;
 }
@@ -94,7 +93,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 40px; /* Largeur réduite */
+  width: 40px;
   height: 2px;
   background: var(--ks-gold);
 }
@@ -103,7 +102,7 @@
 .ks-footer-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Espacement réduit */
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -120,23 +119,23 @@
   gap: 0.5rem;
   transition: var(--ks-transition);
   text-decoration: none;
-  font-size: 0.9rem; /* Taille réduite */
+  font-size: 0.9rem;
 }
 
 .ks-footer-link:hover {
   color: var(--ks-gold);
-  transform: translateX(3px); /* Animation plus subtile */
+  transform: translateX(3px);
 }
 
 .ks-footer-arrow-icon {
-  width: 14px; /* Taille réduite */
+  width: 14px;
   height: 14px;
 }
 
 /* Section Valeurs */
 .ks-footer-values-text {
   color: var(--ks-gray);
-  font-size: 0.85rem; /* Taille réduite */
+  font-size: 0.85rem;
   line-height: 1.5;
   margin-bottom: 1rem;
 }
@@ -144,17 +143,17 @@
 /* Réseaux sociaux */
 .ks-footer-social {
   display: flex;
-  gap: 0.75rem; /* Espacement réduit */
+  gap: 0.75rem;
 }
 
 .ks-footer-social-icon {
-  width: 36px; /* Taille réduite */
+  width: 36px;
   height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08); /* Fond plus discret */
+  background: rgba(255, 255, 255, 0.08);
   color: white;
   transition: var(--ks-transition);
   font-size: 0.95rem;
@@ -162,20 +161,24 @@
 
 .ks-footer-social-icon:hover {
   background: var(--ks-gold);
-  transform: translateY(-2px); /* Animation plus subtile */
+  transform: translateY(-2px);
 }
 
 /* Footer Bottom */
 .ks-footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Ligne plus discrète */
-  padding-top: 1.5rem; /* Espacement réduit */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 0;
   text-align: center;
-  margin-left: 300px;
+
+  /* Centrage total */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ks-footer-copyright {
   color: var(--ks-gray);
-  font-size: 0.85rem; /* Taille réduite */
+  font-size: 0.85rem;
   margin: 0;
 }
 
@@ -184,18 +187,18 @@
   .ks-footer {
     padding: 2.5rem 0 1.25rem;
   }
-  
+
   .ks-footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
-  
+
   .ks-footer-brand {
     grid-column: span 2;
     align-items: center;
     text-align: center;
   }
-  
+
   .ks-footer-brand-desc {
     margin: 0 auto;
   }
@@ -206,11 +209,11 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .ks-footer-brand {
     grid-column: span 1;
   }
-  
+
   .ks-footer-logo {
     height: 36px;
   }
