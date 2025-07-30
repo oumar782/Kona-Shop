@@ -404,6 +404,9 @@ body {
 .premium-products-section {
   background-color: white;
 }
+.premium-explore-button-container {
+  background-color: white;
+}
 /* === Animations === */
 @keyframes premiumFadeInUp {
   from {
