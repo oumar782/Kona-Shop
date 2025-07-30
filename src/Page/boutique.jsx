@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, Suspense, lazy, useRef, useEffect } from 'react';
 import {
   Shirt,
   SprayCan,
@@ -77,6 +77,13 @@ const premiumCategories = [
 const BoutiqueLuxe = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [hoveredCategory, setHoveredCategory] = useState(null);
+  const productsSectionRef = useRef(null);
+
+  useEffect(() => {
+    if (activeCategory && productsSectionRef.current) {
+      productsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [activeCategory]);
 
   const renderContent = () => {
     if (!activeCategory) {
@@ -85,7 +92,7 @@ const BoutiqueLuxe = () => {
           <div className="premium-placeholder-icon">
             <Sparkles size={80} strokeWidth={1.5} />
           </div>
-          <h2 className="premium-placeholder-title">Découvrez l’univers Kona-shop</h2>
+          <h2 className="premium-placeholder-title">Découvrez l'univers Kona-shop</h2>
           <p className="premium-placeholder-subtitle">
             Parcourez nos collections soigneusement sélectionnées pour conjuguer élégance, innovation et raffinement.
           </p>
@@ -94,14 +101,86 @@ const BoutiqueLuxe = () => {
     }
 
     const components = {
-      'ready-to-wear': <PretAPorter />,
-      'perfumery': <Parfumerie />,
-      'cosmetics': <Cosmetique />,
-      'toys': <Jouets />,
-      'electronics': <Electronique />,
-      'home-decor': <DecorationMaison />,
-      'jewelry': <Bijouterie />,
-      'auto-luxury': <AccesoiresAuto />
+      'ready-to-wear': (
+        <div>
+          <PretAPorter />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'perfumery': (
+        <div>
+          <Parfumerie />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'cosmetics': (
+        <div>
+          <Cosmetique />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'toys': (
+        <div>
+          <Jouets />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'electronics': (
+        <div>
+          <Electronique />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'home-decor': (
+        <div>
+          <DecorationMaison />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'jewelry': (
+        <div>
+          <Bijouterie />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      ),
+      'auto-luxury': (
+        <div>
+          <AccesoiresAuto />
+          <div className="premium-explore-button-container">
+            <button className="premium-explore-button">
+              Explorer la collection <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+      )
     };
 
     return (
@@ -121,19 +200,18 @@ const BoutiqueLuxe = () => {
         <div className="premium-hero-overlay"></div>
         <div className="premium-hero-content">
           <h1 className="premium-hero-title">
-            Bienvenue dans l’univers <span className="premium-hero-accent">Kona-shop</span>
+            Bienvenue dans l'univers <span className="premium-hero-accent">Kona-shop</span>
           </h1>
           <p className="premium-hero-subtitle">
             Explorez une sélection de créations uniques, alliant art, savoir-faire et modernité.
           </p>
-        
         </div>
       </section>
 
       {/* Categories Section */}
       <section className="premium-categories-section">
         <div className="premium-section-header">
-          <h2 className="premium-section-title">Nos univers d’exception</h2>
+          <h2 className="premium-section-title">Nos univers d'exception</h2>
           <p className="premium-section-description">
             Chaque catégorie a été pensée pour offrir une expérience unique et intemporelle.
           </p>
@@ -162,7 +240,7 @@ const BoutiqueLuxe = () => {
       </section>
 
       {/* Products Section */}
-      <section className="premium-products-section">
+      <section className="premium-products-section" ref={productsSectionRef}>
         <Suspense fallback={
           <div className="premium-loader">
             <div className="premium-loader-content">
