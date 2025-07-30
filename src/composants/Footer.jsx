@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import '../dossierfooter/footer.css';
 import logos from '../assets/WhatsApp Image 2025-07-23 à 02.08.18_4916699a.jpg';
 
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
