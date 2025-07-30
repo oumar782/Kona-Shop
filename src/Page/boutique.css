@@ -20,7 +20,6 @@
 
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--dark-primary);
   line-height: 1.7;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -166,13 +165,14 @@ body {
 /* === Categories Section === */
 .premium-categories-section {
   padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 3vw, 2rem);
-  background: var(--light-secondary);
+  background-color: white;
   position: relative;
 }
 
 .premium-section-header {
   text-align: center;
   margin-bottom: clamp(3rem, 6vw, 5rem);
+  background-color: white;
 }
 
 .premium-section-title {
@@ -336,6 +336,7 @@ body {
   padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 3vw, 2rem);
   max-width: 900px;
   margin: 0 auto;
+  background-color: white;
 }
 
 .premium-placeholder-icon {
@@ -397,7 +398,12 @@ body {
   color: transparent;
   animation: premiumShimmerSmooth 3s infinite linear;
 }
-
+.premium-loader {
+  background-color: white;
+}
+.premium-products-section {
+  background-color: white;
+}
 /* === Animations === */
 @keyframes premiumFadeInUp {
   from {
