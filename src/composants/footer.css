@@ -1,170 +1,217 @@
-/* Base Styles */
-.luxury-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 5rem 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+/* Variables */
+:root {
+  --ks-gold: #f59e0b;
+  --ks-dark: #111;
+  --ks-light: #fff;
+  --ks-gray: #9ca3af;
+  --ks-transition: all 0.3s ease;
+}
+
+/* Structure Principale */
+.ks-footer {
+  background-color: var(--ks-dark);
+  color: var(--ks-light);
+  padding: 3rem 0 1.5rem; /* Taille réduite */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.ks-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Espacement réduit */
+}
+
+/* Grid Layout */
+.ks-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colonnes plus étroites */
+  gap: 2rem; /* Espacement réduit */
+  margin-bottom: 2rem;
+}
+
+/* Section Marque */
+.ks-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ks-footer-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem; /* Espacement réduit */
+}
+
+.ks-footer-logo {
+  height: 40px; /* Taille réduite */
+  width: auto;
+  object-fit: contain; /* Garantit que le logo est bien visible */
+  border-radius: 10px;
+
+}
+
+.ks-footer-crown-icon {
+  color: var(--ks-gold);
+  width: 24px; /* Taille réduite */
+  height: 24px;
+}
+
+.ks-footer-brand-name {
+  font-size: 1.5rem; /* Taille réduite */
+  font-weight: 700;
+  margin-bottom: 0.75rem; /* Espacement réduit */
+  background: linear-gradient(to right, #fff 50%, var(--ks-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ks-footer-brand-desc {
+  color: var(--ks-gray);
+  line-height: 1.5;
+  font-size: 0.9rem;
+  max-width: 280px; /* Largeur réduite */
+}
+
+/* Colonnes */
+.ks-footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.ks-footer-title {
+  font-size: 1.1rem; /* Taille réduite */
+  font-weight: 600;
+  color: var(--ks-gold);
+  margin-bottom: 1rem; /* Espacement réduit */
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.ks-footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px; /* Largeur réduite */
+  height: 2px;
+  background: var(--ks-gold);
+}
+
+/* Liste */
+.ks-footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Espacement réduit */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ks-footer-item {
+  transition: var(--ks-transition);
+}
+
+.ks-footer-link {
+  color: var(--ks-gray);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--ks-transition);
+  text-decoration: none;
+  font-size: 0.9rem; /* Taille réduite */
+}
+
+.ks-footer-link:hover {
+  color: var(--ks-gold);
+  transform: translateX(3px); /* Animation plus subtile */
+}
+
+.ks-footer-arrow-icon {
+  width: 14px; /* Taille réduite */
+  height: 14px;
+}
+
+/* Section Valeurs */
+.ks-footer-values-text {
+  color: var(--ks-gray);
+  font-size: 0.85rem; /* Taille réduite */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Réseaux sociaux */
+.ks-footer-social {
+  display: flex;
+  gap: 0.75rem; /* Espacement réduit */
+}
+
+.ks-footer-social-icon {
+  width: 36px; /* Taille réduite */
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08); /* Fond plus discret */
+  color: white;
+  transition: var(--ks-transition);
+  font-size: 0.95rem;
+}
+
+.ks-footer-social-icon:hover {
+  background: var(--ks-gold);
+  transform: translateY(-2px); /* Animation plus subtile */
+}
+
+/* Footer Bottom */
+.ks-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Ligne plus discrète */
+  padding-top: 1.5rem; /* Espacement réduit */
+  text-align: center;
+  margin-left: 300px;
+}
+
+.ks-footer-copyright {
+  color: var(--ks-gray);
+  font-size: 0.85rem; /* Taille réduite */
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ks-footer {
+    padding: 2.5rem 0 1.25rem;
   }
   
-  .luxury-footer-container {
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  /* Footer Grid */
-  .luxury-footer-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 3rem;
-    margin-bottom: 4rem;
-  }
-  
-  @media (min-width: 768px) {
-    .luxury-footer-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  /* Brand Section */
-  .luxury-footer-brand {
-    display: flex;
-    flex-direction: column;
+  .ks-footer-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
   
-  .luxury-footer-logo {
-    width: 3rem;
-    height: 3rem;
-    background: white;
-    border-radius: 1rem;
-    display: flex;
+  .ks-footer-brand {
+    grid-column: span 2;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .luxury-footer-brand-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .luxury-footer-description {
-    color: #9ca3af;
-    line-height: 1.6;
-  }
-  
-  /* Footer Columns */
-  .luxury-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .luxury-footer-heading {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #f59e0b;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Footer List */
-  .luxury-footer-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .luxury-footer-link {
-    color: #9ca3af;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .luxury-footer-link:hover {
-    color: #f59e0b;
-  }
-  
-  .luxury-footer-link svg {
-    transition: transform 0.3s ease;
-  }
-  
-  .luxury-footer-link:hover svg {
-    transform: translateX(3px);
-  }
-  
-  /* Social Icons */
-  .luxury-footer-social-text {
-    color: #9ca3af;
-    margin-bottom: 1rem;
-  }
-  
-  .luxury-footer-social {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .luxury-social-icon {
-    width: 3rem;
-    height: 3rem;
-    background: #1f2937;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .luxury-social-icon:hover {
-    background: #d97706;
-    transform: translateY(-3px);
-  }
-  
-  /* Footer Bottom */
-  .luxury-footer-bottom {
-    border-top: 1px solid #1f2937;
-    padding-top: 2rem;
     text-align: center;
   }
   
-  .luxury-footer-copyright {
-    color: #6b7280;
-    margin: 0;
+  .ks-footer-brand-desc {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .ks-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
-  /* Responsive Adjustments */
-  @media (max-width: 1024px) {
-    .luxury-footer {
-      padding: 4rem 0;
-    }
+  .ks-footer-brand {
+    grid-column: span 1;
   }
   
-  @media (max-width: 768px) {
-    .luxury-footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .ks-footer-logo {
+    height: 36px;
   }
-  
-  @media (max-width: 480px) {
-    .luxury-footer {
-      padding: 3rem 0;
-    }
-    
-    .luxury-footer-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    .luxury-footer-column {
-      gap: 1rem;
-    }
-  }
+}

@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Headphones, Globe } from 'lucide-react';
 import './Contact.css';
-
-// Configuration de l'icône du marqueur
-const customIcon = new L.Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,12 +10,6 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,9 +64,6 @@ const Contact = () => {
       action: "Consulter la FAQ"
     }
   ];
-
-  // Coordonnées de la carte (remplacer par vos coordonnées)
-  const mapPosition = [33.5731, -7.5898];
 
   return (
     <div className="contact-container">
@@ -237,27 +214,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              {/* Map */}
-              <div className="contact-map-card">
-                {isClient && (
-                  <MapContainer 
-                    center={mapPosition} 
-                    zoom={15}
-                    scrollWheelZoom={false}
-                    style={{ height: '100%', width: '100%' }}
-                  >
-                    <TileLayer
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    />
-                    <Marker position={mapPosition} icon={customIcon}>
-                      <Popup>
-                        123 Avenue Mohammed V, Casablanca
-                      </Popup>
-                    </Marker>
-                  </MapContainer>
-                )}
-              </div>
+              {/* Adresse Section */}
+              
             </div>
           </div>
         </div>
