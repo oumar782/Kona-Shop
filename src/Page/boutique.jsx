@@ -27,49 +27,49 @@ const premiumCategories = [
   { 
     id: 'ready-to-wear', 
     label: 'Prêt-à-Porter Signature', 
-    description: 'Des pièces élégantes pour affirmer votre style',
+    description: 'Pour sublimer votre style, au quotidien comme lors d’occasions spéciales.',
     icon: Shirt 
   },
   { 
     id: 'perfumery', 
     label: 'Parfumerie d’Exception', 
-    description: 'Fragrances rares, créées pour marquer les esprits',
+    description: 'Des fragrances inoubliables, pour affirmer votre personnalité.',
     icon: SprayCan 
   },
   { 
     id: 'cosmetics', 
     label: 'Beauté & Soin', 
-    description: 'Des formules premium pour sublimer chaque geste',
+    description: 'Des formules haut de gamme, pensées pour révéler votre éclat naturel.',
     icon: Smile 
   },
   { 
     id: 'toys', 
     label: 'Jouets d’Art', 
-    description: 'Objets uniques pour éveiller petits et grands',
+    description: 'Offrez des pièces uniques qui font rêver petits et grands.',
     icon: Gamepad2 
   },
   { 
     id: 'electronics', 
     label: 'Tech Élite', 
-    description: 'Innovation et design réunis dans chaque appareil',
+    description: 'Quand innovation et design se conjuguent au service de votre quotidien.',
     icon: Smartphone 
   },
   { 
     id: 'home-decor', 
     label: 'Décoration Intemporelle', 
-    description: 'L’art de vivre à travers des créations raffinées',
+    description: 'Apportez une touche d’âme et d’élégance à votre intérieur.',
     icon: Home 
   },
   { 
     id: 'jewelry', 
     label: 'Bijoux Haute Création', 
-    description: 'Des pièces uniques façonnées avec passion',
+    description: 'Exprimez votre singularité grâce à des pièces uniques et précieuses.',
     icon: Gem 
   },
   { 
     id: 'auto-luxury', 
     label: 'Accessoires Auto Luxe', 
-    description: 'L’élégance jusque dans les moindres détails',
+    description: 'Alliez performance et raffinement jusque dans les moindres détails.',
     icon: Car 
   }
 ];
@@ -92,9 +92,9 @@ const BoutiqueLuxe = () => {
           <div className="premium-placeholder-icon">
             <Sparkles size={80} strokeWidth={1.5} />
           </div>
-          <h2 className="premium-placeholder-title">Découvrez l'univers Kona-shop</h2>
+          <h2 className="premium-placeholder-title">Découvrez l’univers Kona-shop</h2>
           <p className="premium-placeholder-subtitle">
-            Parcourez nos collections soigneusement sélectionnées pour conjuguer élégance, innovation et raffinement.
+            Sélectionnez la boutique qui vous attire et laissez-vous guider parmi nos sélections exclusives.
           </p>
         </div>
       );
@@ -106,7 +106,7 @@ const BoutiqueLuxe = () => {
           <PretAPorter />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -116,7 +116,7 @@ const BoutiqueLuxe = () => {
           <Parfumerie />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -126,7 +126,7 @@ const BoutiqueLuxe = () => {
           <Cosmetique />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -136,7 +136,7 @@ const BoutiqueLuxe = () => {
           <Jouets />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -146,7 +146,7 @@ const BoutiqueLuxe = () => {
           <Electronique />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -156,7 +156,7 @@ const BoutiqueLuxe = () => {
           <DecorationMaison />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -166,7 +166,7 @@ const BoutiqueLuxe = () => {
           <Bijouterie />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -176,7 +176,7 @@ const BoutiqueLuxe = () => {
           <AccesoiresAuto />
           <div className="premium-explore-button-container">
             <button className="premium-explore-button">
-              Explorer la collection <ArrowRight size={18} />
+              Explorer cette boutique <ArrowRight size={18} />
             </button>
           </div>
         </div>
@@ -200,10 +200,10 @@ const BoutiqueLuxe = () => {
         <div className="premium-hero-overlay"></div>
         <div className="premium-hero-content">
           <h1 className="premium-hero-title">
-            Bienvenue dans l'univers <span className="premium-hero-accent">Kona-shop</span>
+            Entrez dans l’univers <span className="premium-hero-accent">Kona-shop</span>
           </h1>
           <p className="premium-hero-subtitle">
-            Explorez une sélection de créations uniques, alliant art, savoir-faire et modernité.
+            Laissez-vous séduire par nos créations rares, pensées pour celles et ceux qui aiment se distinguer.
           </p>
         </div>
       </section>
@@ -211,9 +211,9 @@ const BoutiqueLuxe = () => {
       {/* Categories Section */}
       <section className="premium-categories-section">
         <div className="premium-section-header">
-          <h2 className="premium-section-title">Nos univers d'exception</h2>
+          <h2 className="premium-section-title">Choisissez votre univers</h2>
           <p className="premium-section-description">
-            Chaque catégorie a été pensée pour offrir une expérience unique et intemporelle.
+            Chaque boutique vous propose une expérience unique, où élégance et caractère se rencontrent.
           </p>
         </div>
         <div className="premium-categories-grid">
