@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import './boutique.css';
 
-// Lazy load components
+// Lazy load des composants
 const PretAPorter = lazy(() => import('../boutiques/PretAPorter'));
 const Parfumerie = lazy(() => import('../boutiques/Parfumerie'));
 const Cosmetique = lazy(() => import('../boutiques/Cosmetique'));
@@ -30,56 +30,56 @@ const premiumCategories = [
   { 
     id: 'ready-to-wear', 
     label: 'Prêt-à-Porter', 
-    description: 'Pour sublimer votre style, au quotidien comme lors d\'occasions spéciales.',
+    description: 'Élégance taillée sur mesure, pour un style qui laisse une empreinte inoubliable.',
     icon: Shirt,
     productCount: '85 produits'
   },
   { 
     id: 'perfumery', 
     label: 'Parfumerie', 
-    description: 'Des fragrances inoubliables, pour affirmer votre personnalité.',
+    description: 'Des fragrances rares pour sublimer votre présence et signer votre personnalité.',
     icon: SprayCan,
     productCount: '42 produits'
   },
   { 
     id: 'cosmetics', 
     label: 'Beauté & Soin', 
-    description: 'Des formules haut de gamme, pensées pour révéler votre éclat naturel.',
+    description: 'Des soins haute performance qui révèlent votre éclat naturel.',
     icon: Smile,
     productCount: '23 produits'
   },
   { 
     id: 'toys', 
     label: 'Jouets', 
-    description: 'Offrez des pièces uniques qui font rêver petits et grands.',
+    description: 'Des créations uniques pour faire briller les yeux des petits et grands rêveurs.',
     icon: Gamepad2,
     productCount: '15 produits'
   },
   { 
     id: 'electronics', 
     label: 'Tech Élite', 
-    description: 'Quand innovation et design se conjuguent au service de votre quotidien.',
+    description: 'Quand la technologie rencontre l’art du détail, pour sublimer votre quotidien.',
     icon: Smartphone,
     productCount: '42 produits'
   },
   { 
     id: 'home-decor', 
     label: 'Décoration', 
-    description: 'Apportez une touche d\'âme et d\'élégance à votre intérieur.',
+    description: 'Des pièces design et intemporelles pour créer un intérieur à votre image.',
     icon: Home,
     productCount: '23 produits'
   },
   { 
     id: 'jewelry', 
     label: 'Bijoux', 
-    description: 'Exprimez votre singularité grâce à des pièces uniques et précieuses.',
+    description: 'Exprimez votre singularité avec des créations précieuses façonnées avec passion.',
     icon: Gem,
     productCount: '15 produits'
   },
   { 
     id: 'auto-luxury', 
     label: 'Accessoires Auto', 
-    description: 'Alliez performance et raffinement jusque dans les moindres détails.',
+    description: 'Alliez raffinement et performance jusque dans les moindres détails de votre véhicule.',
     icon: Car,
     productCount: '15 produits'
   }
@@ -111,9 +111,10 @@ const BoutiqueLuxe = () => {
           <div className="premium-placeholder-icon animate-float">
             <Sparkles size={80} strokeWidth={1.5} />
           </div>
-          <h2 className="premium-placeholder-title">Découvrez l'univers Kona-shop</h2>
+          <h2 className="premium-placeholder-title">Découvrez l’univers Kona-shop</h2>
           <p className="premium-placeholder-subtitle">
-            Sélectionnez la boutique qui vous attire et laissez-vous guider parmi nos sélections exclusives.
+            Parcourez nos univers exclusifs et laissez-vous séduire par des pièces rares et raffinées,
+            pensées pour celles et ceux qui recherchent l’exception.
           </p>
         </div>
       );
@@ -144,10 +145,7 @@ const BoutiqueLuxe = () => {
               <p className="premium-products-description">{activeCatData.description}</p>
             </div>
           </div>
-          <button className="premium-explore-button group">
-            <span>Explorer cette boutique</span>
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+       
         </div>
         <div className="premium-products-grid">
           <Suspense fallback={
@@ -171,10 +169,10 @@ const BoutiqueLuxe = () => {
         <div className="premium-hero-overlay"></div>
         <div className="premium-hero-content">
           <h1 className="premium-hero-title">
-            Notre <span className="premium-hero-accent">Boutique</span>
+            L’art du <span className="premium-hero-accent">Shopping d’Exception</span>
           </h1>
           <p className="premium-hero-subtitle">
-            Découvrez notre sélection de produits high-tech premium, soigneusement choisis pour vous.
+            Une sélection exclusive pour sublimer votre style, exprimer votre différence et vivre le luxe au quotidien.
           </p>
         </div>
         <div className="premium-hero-scroll-indicator"></div>
@@ -182,26 +180,8 @@ const BoutiqueLuxe = () => {
 
       {/* Categories Navigation */}
       <section className="premium-categories-nav">
-        <div className="premium-search-container">
-          <Search size={20} className="premium-search-icon" />
-          <input
-            type="text"
-            placeholder="Rechercher un produit..."
-            className="premium-search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          {searchQuery && (
-            <button 
-              onClick={() => setSearchQuery('')}
-              className="premium-search-clear"
-            >
-              <X size={16} />
-            </button>
-          )}
-        </div>
-        
-        {/* Mobile Categories Toggle */}
+
+
         <button 
           className="premium-mobile-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -213,7 +193,6 @@ const BoutiqueLuxe = () => {
           <ChevronDown size={18} className={`transition-transform ${isMobileMenuOpen ? 'rotate-180' : ''}`} />
         </button>
 
-        {/* Categories List */}
         <div className={`premium-categories-list ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           {filteredCategories.map((category) => (
             <button

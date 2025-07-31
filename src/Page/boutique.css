@@ -344,10 +344,12 @@ body {
   padding: 2.5rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   transition: var(--transition-smooth);
+  height: auto;
+  width: auto;
 }
 
 .premium-products-container:hover {
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 50px rgba(202, 212, 7, 0.2);
 }
 
 .premium-products-header {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Shirt, Zap, Diamond, Palette, Gamepad2, ArrowRight, Crown, CheckCircle, Car } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './store.css';
 
 const EliteCategories = () => {
@@ -15,55 +16,62 @@ const EliteCategories = () => {
       name: "Parfumerie", 
       icon: Sparkles, 
       description: "Essences rares, notes inoubliables", 
-      bgGradient: "radial-gradient(circle at 30% 30%, rgba(254,243,199,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 30% 30%, rgba(254,243,199,0.15) 0%, transparent 50%)",
+      link: "/parfumerie"
     },
     { 
       name: "Prêt-à-porter", 
       icon: Shirt, 
       description: "Élégance contemporaine et savoir-faire", 
-      bgGradient: "radial-gradient(circle at 70% 30%, rgba(243,244,246,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 70% 30%, rgba(243,244,246,0.15) 0%, transparent 50%)",
+      link: "/pret-a-porter"
     },
     { 
       name: "Électronique", 
       icon: Zap, 
       description: "Innovation, design et performance", 
-      bgGradient: "radial-gradient(circle at 30% 70%, rgba(239,246,255,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 30% 70%, rgba(239,246,255,0.15) 0%, transparent 50%)",
+      link: "/electronique"
     },
     { 
       name: "Bijouterie", 
       icon: Diamond, 
       description: "Brillance éternelle et finesse artisanale", 
-      bgGradient: "radial-gradient(circle at 70% 70%, rgba(254,243,199,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 70% 70%, rgba(254,243,199,0.15) 0%, transparent 50%)",
+      link: "/bijouterie"
     },
     { 
       name: "Cosmétiques", 
       icon: Palette, 
       description: "Formules rares pour une beauté sublimée", 
-      bgGradient: "radial-gradient(circle at 50% 30%, rgba(252,231,243,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 50% 30%, rgba(252,231,243,0.15) 0%, transparent 50%)",
+      link: "/cosmetiques"
     },
     { 
       name: "Décoration Maison", 
       icon: Palette, 
-      description: "Objets d’art et design intemporel", 
-      bgGradient: "radial-gradient(circle at 50% 70%, rgba(252,231,243,0.15) 0%, transparent 50%)"
+      description: "Objets d'art et design intemporel", 
+      bgGradient: "radial-gradient(circle at 50% 70%, rgba(252,231,243,0.15) 0%, transparent 50%)",
+      link: "/decoration"
     },
     { 
       name: "Jouetterie", 
       icon: Gamepad2, 
       description: "Loisirs haut de gamme et raffinement", 
-      bgGradient: "radial-gradient(circle at 30% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 30% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)",
+      link: "/jouets"
     },
     { 
       name: "Accessoires automobile", 
       icon: Car, 
       description: "Élégance et puissance discrète", 
-      bgGradient: "radial-gradient(circle at 70% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)"
+      bgGradient: "radial-gradient(circle at 70% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)",
+      link: "/automobile"
     }
   ];
 
   return (
     <section className={`elite-showcase ${isVisible ? 'elite-showcase--visible' : ''}`}>
-      {/* Décorations */}
       <div className="elite-showcase__gold-veil"></div>
       <div className="elite-showcase__diamond-pattern"></div>
 
@@ -122,12 +130,12 @@ const EliteCategories = () => {
                       <p className="elite-artifact__description">{category.description}</p>
                     </div>
 
-                    <button className="elite-artifact__explore">
+                    <Link to={category.link} className="elite-artifact__explore">
                       <span>Découvrir la collection</span>
                       <div className="elite-artifact__arrow">
                         <ArrowRight className="elite-artifact__arrow-icon" />
                       </div>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </article>
