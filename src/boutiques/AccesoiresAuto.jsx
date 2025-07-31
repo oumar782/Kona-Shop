@@ -8,7 +8,7 @@ const AccesoiresAuto = () => {
       <div className="produits-grid">
         <div className="produit-card">
           <img src="https://images.unsplash.com/photo-1589519160752-574a8f862a32" alt="Tapis de luxe" />
-          <h4>Tapis intérieur en cuir</h4>
+          <h4>Tapis xfgnintérieur en cuir</h4>
           <p>Sublimez l'intérieur de votre voiture avec ce tapis sur mesure.</p>
           <strong>299€</strong>
         </div>

@@ -15,41 +15,46 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="header2026">
-      <div className="header2026__container">
-        <div className="header2026__logo">
-          <img src={logoImg} alt="Logo KonaShop" className="header2026__logo-img" />
-          <span className="header2026__logo-text"><span className="header2026__logo-main">Kona</span><span className="header2026__logo--highlight">Shop</span></span>
+    <header className="konashop-header">
+      <div className="konashop-header__container">
+        <div className="konashop-header__logo">
+          <img src={logoImg} alt="Logo KonaShop" className="konashop-header__logo-img" />
+          <span className="konashop-header__logo-text">
+            <span className="konashop-header__logo-main">Kona</span>
+            <span className="konashop-header__logo-highlight">Shop</span>
+          </span>
         </div>
-        <nav className={`header2026__nav ${menuOpen ? "open" : ""}`}>
+        <nav className={`konashop-header__nav ${menuOpen ? "konashop-header__nav--open" : ""}`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="header2026__nav-link"
+              className="konashop-header__nav-link"
               onClick={() => setMenuOpen(false)}
             >
               {link.name}
             </a>
           ))}
-          <div className="header2026__icons">
-            <a href="#wishlist" className="header2026__icon-link" aria-label="Liste de souhaits">
-              <FaHeart className="header2026__icon" />
+          <div className="konashop-header__desktop-icons">
+            <a href="#wishlist" className="konashop-header__icon-link" aria-label="Liste de souhaits">
+              <FaHeart className="konashop-header__icon" />
             </a>
-            <a href="#cart" className="header2026__icon-link" aria-label="Panier">
-              <FaShoppingCart className="header2026__icon" />
+            <a href="#cart" className="konashop-header__icon-link" aria-label="Panier">
+              <FaShoppingCart className="konashop-header__icon" />
             </a>
           </div>
         </nav>
-        <div className="header2026__mobile-icons">
-          <a href="#wishlist" className="header2026__icon-link" aria-label="Liste de souhaits">
-            <FaHeart className="header2026__icon" />
-          </a>
-          <a href="#cart" className="header2026__icon-link" aria-label="Panier">
-            <FaShoppingCart className="header2026__icon" />
-          </a>
+        <div className="konashop-header__mobile-controls">
+          <div className="konashop-header__mobile-icons">
+            <a href="#wishlist" className="konashop-header__icon-link" aria-label="Liste de souhaits">
+              <FaHeart className="konashop-header__icon" />
+            </a>
+            <a href="#cart" className="konashop-header__icon-link" aria-label="Panier">
+              <FaShoppingCart className="konashop-header__icon" />
+            </a>
+          </div>
           <button
-            className={`header2026__burger ${menuOpen ? "open" : ""}`}
+            className={`konashop-header__burger ${menuOpen ? "konashop-header__burger--open" : ""}`}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Ouvrir le menu"
           >
@@ -59,7 +64,7 @@ export default function Header() {
           </button>
         </div>
       </div>
-      {menuOpen && <div className="header2026__overlay" onClick={() => setMenuOpen(false)} />}
+      {menuOpen && <div className="konashop-header__overlay" onClick={() => setMenuOpen(false)} />}
     </header>
   );
 }
