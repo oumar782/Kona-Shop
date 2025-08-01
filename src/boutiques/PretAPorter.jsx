@@ -407,7 +407,6 @@ const CollectionLuxe = () => {
       }
       setIsSearching(false);
     }, 200);
-
     return () => clearTimeout(timer);
   }, [searchQuery, productsData]);
 
@@ -450,8 +449,6 @@ const CollectionLuxe = () => {
       {/* === Horizontal Navigation Bar === */}
       <header className="luxe-navbar">
         <div className="luxe-navbar-container">
-       
-
           <nav className="luxe-nav">
             {['Homme', 'Femme', 'Enfant'].map(category => (
               <button
@@ -466,7 +463,6 @@ const CollectionLuxe = () => {
               </button>
             ))}
           </nav>
-
           <div className="luxe-search-wrapper">
             <div className="luxe-search-box">
               <FiSearch className="luxe-search-icon" />
@@ -498,7 +494,6 @@ const CollectionLuxe = () => {
             Collection exclusive • Artisanat d'exception • Pièces uniques
           </p>
         </div>
-
         <div className="luxe-products-grid">
           {displayedProducts?.map((product, index) => (
             <div
@@ -513,7 +508,6 @@ const CollectionLuxe = () => {
                   className="luxe-card-image"
                   loading="lazy"
                 />
-
                 {/* Image Gallery Dots */}
                 <div className="luxe-image-dots">
                   {product.images.map((_, idx) => (
@@ -528,7 +522,6 @@ const CollectionLuxe = () => {
                     />
                   ))}
                 </div>
-
                 {/* Hover Overlay */}
                 <div className="luxe-card-overlay">
                   <button
@@ -542,7 +535,6 @@ const CollectionLuxe = () => {
                     Voir Détails
                   </button>
                 </div>
-
                 {/* Wishlist Button */}
                 <button 
                   className="luxe-wishlist-btn"
@@ -550,12 +542,10 @@ const CollectionLuxe = () => {
                 >
                   <FiHeart />
                 </button>
-
                 {/* Badges */}
                 {product.isNew && <span className="luxe-badge luxe-badge-new">Nouveau</span>}
                 {product.bestseller && <span className="luxe-badge luxe-badge-bestseller">Best-seller</span>}
               </div>
-
               <div className="luxe-card-content">
                 <h3 className="luxe-card-title">{product.name}</h3>
                 <p className="luxe-card-desc">{product.description}</p>
@@ -572,7 +562,6 @@ const CollectionLuxe = () => {
               </div>
             </div>
           ))}
-
           {displayedProducts?.length === 0 && !isSearching && (
             <div className="luxe-no-results">
               <FiSearch size={48} />
@@ -593,7 +582,6 @@ const CollectionLuxe = () => {
             >
               <FiX />
             </button>
-
             <div className="luxe-modal-body">
               <div className="luxe-modal-image-section">
                 <div className="luxe-modal-main-image">
@@ -603,14 +591,12 @@ const CollectionLuxe = () => {
                     className="luxe-modal-image"
                   />
                 </div>
-
                 <button className="luxe-modal-nav luxe-modal-prev" onClick={prevImage}>
                   <FiChevronLeft />
                 </button>
                 <button className="luxe-modal-nav luxe-modal-next" onClick={nextImage}>
                   <FiChevronRight />
                 </button>
-
                 <div className="luxe-modal-thumbnails">
                   {quickViewProduct.images.map((img, idx) => (
                     <img
@@ -623,20 +609,16 @@ const CollectionLuxe = () => {
                   ))}
                 </div>
               </div>
-
               <div className="luxe-modal-info-section">
                 <div className="luxe-modal-header">
                   <h2 className="luxe-modal-title">{quickViewProduct.name}</h2>
                   <p className="luxe-modal-price">{quickViewProduct.price}</p>
                 </div>
-                
                 <div className="luxe-modal-rating">
                   {renderRating(quickViewProduct.rating)}
                   <span className="luxe-modal-category">{quickViewProduct.category}</span>
                 </div>
-                
                 <p className="luxe-modal-desc">{quickViewProduct.description}</p>
-
                 <div className="luxe-modal-details">
                   <h4>Détails du produit</h4>
                   <ul>
@@ -647,7 +629,6 @@ const CollectionLuxe = () => {
                     ))}
                   </ul>
                 </div>
-
                 <div className="luxe-modal-actions">
                   <button className="luxe-modal-add">
                     <FiShoppingBag /> Ajouter au panier
