@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
+ import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import { FiSearch, FiHeart, FiX, FiChevronRight, FiChevronLeft, FiShoppingBag, FiStar } from 'react-icons/fi';
 import './PretAporte.css';
 
@@ -106,6 +106,98 @@ const CollectionLuxe = () => {
         rating: 4
       },
       {
+        id: 5,
+        name: "Manteau en cachemire Loro Piana",
+        description: "Cachemire 100%, poids plume, chaleur exceptionnelle. Le summum du confort élégant.",
+        price: "4 200€",
+        images: [
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1539533018447-63fcce2678e4?w=800&auto=format&fit=crop&q=80"
+        ],
+        details: [
+          "Cachemire 100% mongol",
+          "Poids de 380g seulement",
+          "Finition main surpiquée",
+          "Capuche amovible",
+          "Doublure en soie",
+          "Entretien pressing"
+        ],
+        category: "Homme",
+        isNew: true,
+        bestseller: false,
+        rating: 5
+      },
+      {
+        id: 5,
+        name: "Manteau en cachemire Loro Piana",
+        description: "Cachemire 100%, poids plume, chaleur exceptionnelle. Le summum du confort élégant.",
+        price: "4 200€",
+        images: [
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1539533018447-63fcce2678e4?w=800&auto=format&fit=crop&q=80"
+        ],
+        details: [
+          "Cachemire 100% mongol",
+          "Poids de 380g seulement",
+          "Finition main surpiquée",
+          "Capuche amovible",
+          "Doublure en soie",
+          "Entretien pressing"
+        ],
+        category: "Homme",
+        isNew: true,
+        bestseller: false,
+        rating: 5
+      },
+      {
+        id: 5,
+        name: "Manteau en cachemire Loro Piana",
+        description: "Cachemire 100%, poids plume, chaleur exceptionnelle. Le summum du confort élégant.",
+        price: "4 200€",
+        images: [
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1539533018447-63fcce2678e4?w=800&auto=format&fit=crop&q=80"
+        ],
+        details: [
+          "Cachemire 100% mongol",
+          "Poids de 380g seulement",
+          "Finition main surpiquée",
+          "Capuche amovible",
+          "Doublure en soie",
+          "Entretien pressing"
+        ],
+        category: "Homme",
+        isNew: true,
+        bestseller: false,
+        rating: 5
+      },
+      {
+        id: 5,
+        name: "Manteau en cachemire Loro Piana",
+        description: "Cachemire 100%, poids plume, chaleur exceptionnelle. Le summum du confort élégant.",
+        price: "4 200€",
+        images: [
+          "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1539533018447-63fcce2678e4?w=800&auto=format&fit=crop&q=80"
+        ],
+        details: [
+          "Cachemire 100% mongol",
+          "Poids de 380g seulement",
+          "Finition main surpiquée",
+          "Capuche amovible",
+          "Doublure en soie",
+          "Entretien pressing"
+        ],
+        category: "Homme",
+        isNew: true,
+        bestseller: false,
+        rating: 5
+      },
+       {
         id: 5,
         name: "Manteau en cachemire Loro Piana",
         description: "Cachemire 100%, poids plume, chaleur exceptionnelle. Le summum du confort élégant.",
@@ -646,4 +738,4 @@ const CollectionLuxe = () => {
   );
 };
 
-export default CollectionLuxe;
+export default CollectionLuxe; 
