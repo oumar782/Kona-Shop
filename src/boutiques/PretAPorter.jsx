@@ -1,4 +1,4 @@
- import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import { FiSearch, FiHeart, FiX, FiChevronRight, FiChevronLeft, FiShoppingBag, FiStar } from 'react-icons/fi';
 import './PretAporte.css';
 
@@ -479,7 +479,6 @@ const CollectionLuxe = () => {
       }
     ]
   }), []);
-
   // --- Filter products with debounce effect ---
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -539,45 +538,44 @@ const CollectionLuxe = () => {
   return (
     <div className="luxe-root">
       {/* === Horizontal Navigation Bar === */}
-      <header className="luxe-navbar">
-        <div className="luxe-navbar-container">
-          <nav className="luxe-nav">
-            {['Homme', 'Femme', 'Enfant'].map(category => (
-              <button
-                key={category}
-                className={`luxe-nav-item ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => {
-                  setActiveCategory(category);
-                  setSearchQuery('');
-                }}
-              >
-                {category}
-              </button>
-            ))}
-          </nav>
-          <div className="luxe-search-wrapper">
-            <div className="luxe-search-box">
-              <FiSearch className="luxe-search-icon" />
-              <input
-                type="text"
-                placeholder="Rechercher un article..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="luxe-search-input"
-              />
-              {searchQuery && (
-                <button 
-                  className="luxe-search-clear"
-                  onClick={() => setSearchQuery('')}
-                >
-                  <FiX />
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <header className="luxe-navbar">
+  <div className="luxe-navbar-container">
+    <nav className="luxe-nav">
+      {['Homme', 'Femme', 'Enfant'].map(category => (
+        <button
+          key={category}
+          className={`luxe-nav-item ${activeCategory === category ? 'active' : ''}`}
+          onClick={() => {
+            setActiveCategory(category);
+            setSearchQuery('');
+          }}
+        >
+          {category}
+        </button>
+      ))}
+    </nav>
+    <div className="luxe-search-wrapper">
+      <div className="luxe-search-box">
+        <FiSearch className="luxe-search-icon" />
+        <input
+          type="text"
+          placeholder="Rechercher un article..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="luxe-search-input"
+        />
+        {searchQuery && (
+          <button 
+            className="luxe-search-clear"
+            onClick={() => setSearchQuery('')}
+          >
+            <FiX />
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
+</header>
       {/* === Main Content === */}
       <main className="luxe-main">
         <div className="luxe-header-section">
@@ -738,4 +736,4 @@ const CollectionLuxe = () => {
   );
 };
 
-export default CollectionLuxe; 
+export default CollectionLuxe;
