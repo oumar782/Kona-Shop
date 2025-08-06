@@ -65,12 +65,10 @@
 }
 
 html {
-  font-size: 18px;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
   background: var(--luxe-gradient);
   color: var(--luxe-text);
   line-height: 1.8;
@@ -1096,8 +1094,8 @@ body {
 /* ============================== */
 @media (min-width: 481px) and (max-width: 768px) {
   .luxe-navbar {
-    width: 100%;
-    margin-left: 0;
+    width: 700px;
+    margin-left: 520px;
   }
 
   .luxe-navbar-container {
@@ -1116,17 +1114,25 @@ body {
   }
 
   .luxe-header-section {
-    margin-left: 0;
+    margin-left: 390px;
+    text-wrap: nowrap;
   }
+.luxe-subtitle {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    margin-left: -170px;
 
+  }
   /* Tablette - 2 cartes par ligne */
   .luxe-products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    margin-left: 137px;
   }
 
   .luxe-card {
     margin-right: 0;
+    width: 340px;
   }
 
   .luxe-modal-backdrop {
@@ -1139,10 +1145,11 @@ body {
 /* ============================== */
 @media (min-width: 769px) and (max-width: 1024px) {
   .luxe-navbar {
-    width: 100%;
-    margin-left: 0;
+    width: 850px;
+    margin-left: 550px;
+    
   }
-
+ 
   .luxe-navbar-container {
     width: 100%;
   }
@@ -1153,22 +1160,26 @@ body {
   }
 
   .luxe-header-section {
-    margin-left: 0;
+    margin-left: 480px;
   }
+  .luxe-subtitle {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    margin-left: -160px;
+    text-wrap: nowrap;
 
+  }
   /* Laptop - 3 cartes par ligne */
   .luxe-products-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
+    gap: 1rem;
+    margin-left: 100px;
 
-/* ============================== */
-/* RESPONSIVE ADJUSTMENTS - DESKTOP LARGE */
-/* ============================== */
-@media (min-width: 1025px) {
-  /* Desktop - 3 cartes par ligne (déjà défini dans les styles de base) */
-  /* Aucun changement nécessaire - le design desktop original est conservé */
+  }
+  .luxe-card {
+    margin-right: 0;
+    width: 300px;
+  }
 }
 
 /* ============================== */
