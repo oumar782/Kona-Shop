@@ -10,7 +10,7 @@ import {
   FiChevronDown,
   FiChevronUp
 } from 'react-icons/fi';
-import './Electronique.css';
+import '../elec/electronique.css';
 
 // Import des produits électroniques
 import { electromenager } from '../Electronique/electromenager';
