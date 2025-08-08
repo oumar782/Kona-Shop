@@ -1,0 +1,1711 @@
+:root {
+    /* Couleurs pour cosmétiques */
+    --cosmetique-primary: #3a5a78;
+    --cosmetique-secondary: #f8f9fa;
+    --cosmetique-accent: #a8c4d0;
+    --cosmetique-accent-light: #d4e3e8;
+    --cosmetique-accent-dark: #5a7c8a;
+    --cosmetique-rose: #e8b4b4;
+    --cosmetique-vert: #c8e6c9;
+    --cosmetique-text: #2d3748;
+    --cosmetique-text-light: #4a5568;
+    --cosmetique-text-muted: #718096;
+    --cosmetique-white: #ffffff;
+    --cosmetique-black: #000000;
+    --cosmetique-gray-50: #f9fafb;
+    --cosmetique-gray-100: #f3f4f6;
+    --cosmetique-gray-200: #e5e7eb;
+    --cosmetique-gray-300: #d1d5db;
+    --cosmetique-border: #e2e8f0;
+    --cosmetique-overlay: rgba(58, 90, 120, 0.95);
+    --cosmetique-gold: #d4af37;
+    --cosmetique-gold-light: #f4e4a6;
+    --cosmetique-vert-clair: #e8f5e9;
+    --cosmetique-pearl: #faf8f5;
+    
+    /* Gradients */
+    --cosmetique-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    --cosmetique-accent-gradient: linear-gradient(135deg, #a8c4d0 0%, #d4e3e8 50%, #5a7c8a 100%);
+    --cosmetique-rose-gradient: linear-gradient(135deg, #e8b4b4 0%, #f8d7da 100%);
+    --cosmetique-shimmer: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    --cosmetique-vert-gradient: linear-gradient(135deg, #81c784 0%, #c8e6c9 50%, #43a047 100%);
+    --cosmetique-luxury-gradient: linear-gradient(135deg, #3a5a78 0%, #a8c4d0 50%, #3a5a78 100%);
+    --cosmetique-glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    /* Ombres */
+    --cosmetique-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --cosmetique-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --cosmetique-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --cosmetique-shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+    --cosmetique-shadow-accent: 0 8px 32px rgba(168, 196, 208, 0.3);
+    --cosmetique-shadow-luxury: 0 30px 60px rgba(58, 90, 120, 0.25);
+    --cosmetique-shadow-vert: 0 15px 35px rgba(129, 199, 132, 0.4);
+    --cosmetique-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Rayons */
+    --cosmetique-radius-sm: 8px;
+    --cosmetique-radius: 12px;
+    --cosmetique-radius-lg: 20px;
+    --cosmetique-radius-xl: 24px;
+    --cosmetique-radius-2xl: 32px;
+    
+    /* Transitions */
+    --cosmetique-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --cosmetique-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --cosmetique-transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --cosmetique-transition-luxury: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    --cosmetique-duration: 0.6s;
+    
+    /* Dimensions des cartes */
+    --card-width: 380px;
+    --card-height: 520px;
+    --card-image-height: 320px;
+    
+    /* Points de rupture */
+    --bp-xs: 480px;
+    --bp-sm: 640px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1280px;
+    --bp-2xl: 1536px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cosmetique-gradient);
+    color: var(--cosmetique-text);
+    line-height: 1.8;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ================ */
+/* HEADER NAVIGATION */
+/* ================ */
+.cosmetique-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(248, 249, 250, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cosmetique-border);
+    box-shadow: var(--cosmetique-shadow-sm);
+    width: 1000px;
+    border-radius: 0 0 20px 20px;
+    margin-left: 1100px;
+}
+
+.cosmetique-navbar-container {
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 1000px;
+}
+
+/* Navigation */
+.cosmetique-nav {
+    display: flex;
+    gap: 3rem;
+    margin-left: 50px;
+}
+
+.cosmetique-nav-item {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--cosmetique-text);
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--cosmetique-transition);
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cosmetique-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cosmetique-accent-gradient);
+    transition: var(--cosmetique-transition);
+}
+
+.cosmetique-nav-item.active {
+    color: var(--cosmetique-accent-dark);
+    font-weight: 600;
+}
+
+.cosmetique-nav-item.active::after,
+.cosmetique-nav-item:hover::after {
+    width: 100%;
+}
+
+.cosmetique-nav-item:hover {
+    color: var(--cosmetique-accent-dark);
+}
+
+/* Search */
+.cosmetique-search-wrapper {
+    flex: 1;
+    max-width: 450px;
+    min-width: 250px;
+}
+
+.cosmetique-search-box {
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    background: var(--cosmetique-white);
+    border: 1px solid var(--cosmetique-border);
+    transition: var(--cosmetique-transition);
+}
+
+.cosmetique-search-box:focus-within {
+    box-shadow: 0 5px 25px rgba(168, 196, 208, 0.3);
+    border-color: var(--cosmetique-accent-light);
+}
+
+.cosmetique-search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cosmetique-text-light);
+    pointer-events: none;
+}
+
+.cosmetique-search-input {
+    width: 100%;
+    padding: 1rem 1.5rem 1rem 3.5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    transition: var(--cosmetique-transition);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cosmetique-search-input::placeholder {
+    color: var(--cosmetique-text-light);
+    opacity: 0.8;
+}
+
+.cosmetique-search-input:focus {
+    box-shadow: 0 0 0 3px rgba(168, 196, 208, 0.2);
+}
+
+.cosmetique-search-clear {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--cosmetique-text-light);
+    cursor: pointer;
+    transition: var(--cosmetique-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.cosmetique-search-clear:hover {
+    color: var(--cosmetique-accent-dark);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ================ */
+/* MAIN CONTENT */
+/* ================ */
+.cosmetique-main {
+    max-width: 1800px;
+    width: 1300px;
+    margin: 0 auto;
+    padding: 1rem 8rem;
+    animation: fadeIn var(--cosmetique-duration) ease-out;
+}
+
+.cosmetique-header-section {
+    text-align: center;
+    margin-bottom: 5rem;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    margin-left: 230px;
+    text-align: center;
+}
+
+.cosmetique-root {
+    display: flex;
+    flex-direction: column;
+    margin-left: -180px;
+    align-items: center;
+}
+
+.cosmetique-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--cosmetique-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--cosmetique-primary), var(--cosmetique-accent-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.cosmetique-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--cosmetique-accent-gradient);
+    border-radius: 2px;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+}
+
+.cosmetique-subtitle {
+    font-size: 1.4rem;
+    color: var(--cosmetique-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Enhanced Grid Layout - Desktop (3 cartes par ligne) */
+.cosmetique-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(var(--card-width), 1fr));
+    gap: 2.5rem;
+    justify-items: center;
+    padding: 2rem 0;
+    margin-left: 30px;
+}
+
+/* Enhanced Cards with Larger Images */
+.cosmetique-card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background: var(--cosmetique-white);
+    border-radius: var(--cosmetique-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--cosmetique-shadow);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.6s ease-out forwards;
+    position: relative;
+    transition: var(--cosmetique-transition);
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    margin-right: -60px;
+}
+
+.cosmetique-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: var(--cosmetique-shadow-lg);
+}
+
+/* Image Container */
+.cosmetique-card-image-wrapper {
+    position: relative;
+    height: 65%;
+    overflow: hidden;
+    border-radius: var(--cosmetique-radius-lg) var(--cosmetique-radius-lg) 0 0;
+}
+
+.cosmetique-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--cosmetique-transition);
+    will-change: transform;
+}
+
+.cosmetique-card:hover .cosmetique-card-image {
+    transform: scale(1.08);
+}
+
+/* Image Gallery Dots */
+.cosmetique-image-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cosmetique-card:hover .cosmetique-image-dots {
+    opacity: 1;
+}
+
+.cosmetique-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--cosmetique-transition);
+}
+
+.cosmetique-dot:hover, .cosmetique-dot.active {
+    background: var(--cosmetique-white);
+    transform: scale(1.3);
+}
+
+/* Hover Overlay */
+.cosmetique-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: var(--cosmetique-transition);
+    z-index: 1;
+}
+
+.cosmetique-card:hover .cosmetique-card-overlay {
+    opacity: 1;
+}
+
+.cosmetique-quick-view-btn {
+    background: var(--cosmetique-white);
+    color: var(--cosmetique-primary);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--cosmetique-transition);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.cosmetique-quick-view-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--cosmetique-accent-gradient);
+    transition: var(--cosmetique-transition);
+    z-index: -1;
+}
+
+.cosmetique-quick-view-btn:hover {
+    color: var(--cosmetique-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border-color: transparent;
+}
+
+.cosmetique-quick-view-btn:hover::before {
+    left: 0;
+}
+
+/* Wishlist Button */
+.cosmetique-wishlist-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--cosmetique-transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+
+.cosmetique-card:hover .cosmetique-wishlist-btn {
+    opacity: 1;
+}
+
+.cosmetique-wishlist-btn svg {
+    color: var(--cosmetique-text-light);
+    transition: var(--cosmetique-transition);
+    stroke-width: 2px;
+}
+
+.cosmetique-wishlist-btn:hover svg {
+    color: #e31b23;
+    fill: #e31b23;
+    transform: scale(1.2);
+}
+
+/* Badges */
+.cosmetique-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    color: var(--cosmetique-white);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--cosmetique-transition);
+    animation: float 3s ease-in-out infinite;
+}
+
+.cosmetique-badge-new {
+    background: var(--cosmetique-accent);
+}
+
+.cosmetique-badge-bestseller {
+    background: #e31b23;
+}
+
+.cosmetique-badge-bio {
+    background: #81c784;
+}
+
+.cosmetique-card:hover .cosmetique-badge {
+    transform: translateY(-5px);
+}
+
+/* Enhanced Card Content */
+.cosmetique-card-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--cosmetique-white);
+    position: relative;
+}
+
+.cosmetique-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--cosmetique-primary);
+    margin-bottom: 0.8rem;
+    transition: var(--cosmetique-transition);
+    line-height: 1.4;
+}
+
+.cosmetique-card:hover .cosmetique-card-title {
+    color: var(--cosmetique-accent-dark);
+}
+
+.cosmetique-card-desc {
+    font-size: 0.95rem;
+    color: var(--cosmetique-text-light);
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Rating */
+.cosmetique-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.2rem;
+}
+
+.cosmetique-star {
+    color: var(--cosmetique-gray);
+    transition: var(--cosmetique-transition);
+}
+
+.cosmetique-star.filled {
+    color: var(--cosmetique-accent);
+    fill: var(--cosmetique-accent);
+}
+
+/* Card Footer */
+.cosmetique-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.cosmetique-card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cosmetique-primary);
+    letter-spacing: 1px;
+}
+
+.cosmetique-add-btn {
+    background: var(--cosmetique-primary);
+    color: var(--cosmetique-white);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--cosmetique-transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cosmetique-add-btn:hover {
+    background: var(--cosmetique-accent-dark);
+    color: var(--cosmetique-white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(168, 196, 208, 0.4);
+}
+
+/* No Results */
+.cosmetique-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.cosmetique-no-results svg {
+    color: var(--cosmetique-accent-light);
+    margin-bottom: 1.5rem;
+}
+
+.cosmetique-no-results h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--cosmetique-primary);
+}
+
+.cosmetique-no-results p {
+    color: var(--cosmetique-text-light);
+    font-size: 1.1rem;
+}
+
+/* ================ */
+/* MODAL ULTRA LUXUEUX */
+/* ================ */
+.cosmetique-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    background: linear-gradient(135deg, 
+      rgba(58, 90, 120, 0.96) 0%, 
+      rgba(90, 124, 138, 0.94) 50%, 
+      rgba(58, 90, 120, 0.96) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: luxuryFadeIn 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-top: 80px;
+}
+
+.cosmetique-modal {
+    background: linear-gradient(145deg, 
+      var(--cosmetique-pearl) 0%, 
+      var(--cosmetique-white) 30%, 
+      var(--cosmetique-vert-clair) 100%);
+    border-radius: var(--cosmetique-radius-2xl);
+    width: 100%;
+    max-width: 1400px;
+    max-height: 82vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: luxuryModalIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: var(--cosmetique-shadow-luxury);
+    border: 2px solid rgba(168, 196, 208, 0.2);
+    position: relative;
+}
+
+/* Effet de brillance luxueux sur le modal */
+.cosmetique-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(168, 196, 208, 0.1) 50%, 
+      transparent 100%);
+    animation: luxuryShimmer 3s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cosmetique-modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(212, 227, 232, 0.9) 100%);
+    border: 2px solid var(--cosmetique-accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--cosmetique-transition-luxury);
+    z-index: 10;
+    box-shadow: var(--cosmetique-shadow-accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.cosmetique-modal-close:hover {
+    background: var(--cosmetique-accent-gradient);
+    color: var(--cosmetique-white);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(168, 196, 208, 0.5);
+}
+
+.cosmetique-modal-close svg {
+    transition: var(--cosmetique-transition);
+    stroke-width: 2.5px;
+}
+
+.cosmetique-modal-body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 992px) {
+    .cosmetique-modal-body {
+        flex-direction: row;
+        height: 100%;
+    }
+}
+
+.cosmetique-modal-image-section {
+    position: relative;
+    flex: 1.2;
+    min-height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+      var(--cosmetique-vert-clair) 0%, 
+      var(--cosmetique-pearl) 100%);
+    border-radius: var(--cosmetique-radius-xl);
+    margin: 1rem;
+    box-shadow: var(--cosmetique-shadow-inner);
+}
+
+@media (min-width: 992px) {
+    .cosmetique-modal-image-section {
+        min-height: auto;
+        margin: 1.5rem 1rem 1.5rem 1.5rem;
+    }
+}
+
+.cosmetique-modal-main-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--cosmetique-radius-lg);
+    overflow: hidden;
+    background: var(--cosmetique-glass-gradient);
+    backdrop-filter: blur(5px);
+}
+
+.cosmetique-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--cosmetique-transition-luxury);
+    border-radius: var(--cosmetique-radius-lg);
+}
+
+.cosmetique-modal-image:hover {
+    transform: scale(1.02);
+}
+
+/* Boutons de navigation ultra luxueux */
+.cosmetique-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(212, 227, 232, 0.9) 100%);
+    border: 2px solid var(--cosmetique-accent);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--cosmetique-transition-luxury);
+    z-index: 3;
+    box-shadow: var(--cosmetique-shadow-accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.cosmetique-modal-nav:hover {
+    background: var(--cosmetique-accent-gradient);
+    color: var(--cosmetique-white);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 20px 40px rgba(168, 196, 208, 0.5);
+}
+
+.cosmetique-modal-nav svg {
+    stroke-width: 2.5px;
+    transition: var(--cosmetique-transition);
+}
+
+.cosmetique-modal-prev {
+    left: 25px;
+}
+
+.cosmetique-modal-next {
+    right: 25px;
+}
+
+/* Miniatures luxueuses */
+.cosmetique-modal-thumbnails {
+    display: flex;
+    gap: 12px;
+    padding: 2rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cosmetique-accent) transparent;
+}
+
+.cosmetique-modal-thumbnails::-webkit-scrollbar {
+    height: 4px;
+}
+
+.cosmetique-modal-thumbnails::-webkit-scrollbar-track {
+    background: rgba(168, 196, 208, 0.2);
+    border-radius: 2px;
+}
+
+.cosmetique-modal-thumbnails::-webkit-scrollbar-thumb {
+    background: var(--cosmetique-accent);
+    border-radius: 2px;
+}
+
+@media (min-width: 992px) {
+    .cosmetique-modal-thumbnails {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        background: linear-gradient(to top, 
+          rgba(58, 90, 120, 0.8) 0%, 
+          rgba(90, 124, 138, 0.6) 50%,
+          transparent 100%);
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+.cosmetique-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--cosmetique-radius);
+    cursor: pointer;
+    transition: var(--cosmetique-transition-luxury);
+    border: 3px solid rgba(168, 196, 208, 0.3);
+    box-shadow: var(--cosmetique-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmetique-thumb::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--cosmetique-glass-gradient);
+    opacity: 0;
+    transition: var(--cosmetique-transition);
+    border-radius: var(--cosmetique-radius-sm);
+}
+
+.cosmetique-thumb:hover {
+    transform: scale(1.1) translateY(-5px);
+    border-color: var(--cosmetique-accent);
+    box-shadow: var(--cosmetique-shadow-accent);
+}
+
+.cosmetique-thumb:hover::before {
+    opacity: 1;
+}
+
+.cosmetique-thumb.active {
+    border-color: var(--cosmetique-accent);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: var(--cosmetique-shadow-accent);
+    background: var(--cosmetique-accent-gradient);
+}
+
+.cosmetique-thumb.active::before {
+    opacity: 0.2;
+}
+
+/* Section d'informations ultra luxueuse */
+.cosmetique-modal-info-section {
+    flex: 1;
+    padding: 3rem;
+    overflow-y: auto;
+    background: linear-gradient(135deg, 
+      var(--cosmetique-white) 0%, 
+      var(--cosmetique-pearl) 50%, 
+      var(--cosmetique-vert-clair) 100%);
+    position: relative;
+}
+
+.cosmetique-modal-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--cosmetique-accent-gradient);
+    opacity: 0.6;
+}
+
+.cosmetique-modal-header {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.cosmetique-modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--cosmetique-accent-gradient);
+    border-radius: 1px;
+}
+
+.cosmetique-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, 
+      var(--cosmetique-primary) 0%, 
+      var(--cosmetique-accent-dark) 50%, 
+      var(--cosmetique-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cosmetique-modal-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--cosmetique-accent);
+    text-shadow: 0 2px 4px rgba(168, 196, 208, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.cosmetique-modal-price::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--cosmetique-accent-gradient);
+    border-radius: 1px;
+    animation: priceGlow 2s ease-in-out infinite alternate;
+}
+
+/* Section de notation luxueuse */
+.cosmetique-modal-rating {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--cosmetique-radius-lg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(168, 196, 208, 0.2);
+    box-shadow: var(--cosmetique-shadow-inner);
+}
+
+.cosmetique-modal-rating .cosmetique-rating {
+    margin-bottom: 0;
+    gap: 6px;
+}
+
+.cosmetique-modal-rating .cosmetique-star {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(168, 196, 208, 0.3));
+}
+
+.cosmetique-modal-category {
+    background: var(--cosmetique-accent-gradient);
+    color: var(--cosmetique-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: var(--cosmetique-shadow-accent);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cosmetique-modal-desc {
+    font-size: 1.2rem;
+    color: var(--cosmetique-text);
+    margin-bottom: 3rem;
+    line-height: 1.9;
+    font-weight: 400;
+    text-align: justify;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--cosmetique-radius-lg);
+    border-left: 4px solid var(--cosmetique-accent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: var(--cosmetique-shadow-inner);
+}
+
+/* Section détails ultra raffinée */
+.cosmetique-modal-details {
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(212, 227, 232, 0.6) 100%);
+    border-radius: var(--cosmetique-radius-xl);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(168, 196, 208, 0.2);
+    box-shadow: var(--cosmetique-shadow-lg);
+    position: relative;
+}
+
+.cosmetique-modal-details::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: var(--cosmetique-accent-gradient);
+    border-radius: var(--cosmetique-radius-xl);
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.cosmetique-modal-details h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, 
+      var(--cosmetique-primary) 0%, 
+      var(--cosmetique-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.cosmetique-modal-details h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--cosmetique-accent-gradient);
+    border-radius: 2px;
+    animation: detailsGlow 3s ease-in-out infinite alternate;
+}
+
+.cosmetique-modal-details ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.cosmetique-modal-details li {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    line-height: 1.7;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--cosmetique-radius);
+    border-left: 3px solid var(--cosmetique-accent);
+    transition: var(--cosmetique-transition);
+}
+
+.cosmetique-modal-details li:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(5px);
+    box-shadow: var(--cosmetique-shadow);
+}
+
+.cosmetique-modal-details li svg {
+    color: var(--cosmetique-accent);
+    flex-shrink: 0;
+    margin-top: 4px;
+    filter: drop-shadow(0 2px 4px rgba(168, 196, 208, 0.3));
+}
+
+.cosmetique-modal-details strong {
+    color: var(--cosmetique-primary);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+/* Spécifications luxueuses */
+.cosmetique-modal-specs {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.cosmetique-modal-specs p {
+    font-size: 1rem;
+    color: var(--cosmetique-text);
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--cosmetique-radius);
+    border: 1px solid rgba(168, 196, 208, 0.2);
+    transition: var(--cosmetique-transition);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.cosmetique-modal-specs p:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: var(--cosmetique-shadow);
+}
+
+.cosmetique-modal-specs strong {
+    color: var(--cosmetique-primary);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Actions ultra luxueuses */
+.cosmetique-modal-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cosmetique-modal-add {
+    flex: 1;
+    background: var(--cosmetique-luxury-gradient);
+    color: var(--cosmetique-white);
+    border: 2px solid var(--cosmetique-accent);
+    padding: 1.5rem 2rem;
+    border-radius: var(--cosmetique-radius-lg);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: var(--cosmetique-transition-luxury);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--cosmetique-shadow-luxury);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cosmetique-modal-add::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--cosmetique-accent-gradient);
+    transition: var(--cosmetique-transition-luxury);
+    z-index: -1;
+}
+
+.cosmetique-modal-add:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(58, 90, 120, 0.4);
+    border-color: var(--cosmetique-accent-light);
+}
+
+.cosmetique-modal-add:hover::before {
+    left: 0;
+}
+
+.cosmetique-modal-add svg {
+    transition: var(--cosmetique-transition);
+    stroke-width: 2.5px;
+}
+
+.cosmetique-modal-add:hover svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 2px 4px rgba(255,255,255,0.3));
+}
+
+.cosmetique-modal-wishlist {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(212, 227, 232, 0.9) 100%);
+    color: var(--cosmetique-primary);
+    border: 2px solid var(--cosmetique-accent);
+    width: 70px;
+    height: 70px;
+    border-radius: var(--cosmetique-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--cosmetique-transition-luxury);
+    box-shadow: var(--cosmetique-shadow-accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmetique-modal-wishlist::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #e31b23, #ff6b6b);
+    opacity: 0;
+    transition: var(--cosmetique-transition-luxury);
+    border-radius: var(--cosmetique-radius-lg);
+}
+
+.cosmetique-modal-wishlist:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 20px 40px rgba(227, 27, 35, 0.4);
+    border-color: #e31b23;
+}
+
+.cosmetique-modal-wishlist:hover::before {
+    opacity: 1;
+}
+
+.cosmetique-modal-wishlist svg {
+    transition: var(--cosmetique-transition-luxury);
+    stroke-width: 2.5px;
+    z-index: 2;
+    position: relative;
+}
+
+.cosmetique-modal-wishlist:hover svg {
+    transform: scale(1.3);
+    color: var(--cosmetique-white);
+    fill: var(--cosmetique-white);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Animations luxueuses */
+@keyframes luxuryFadeIn {
+    from { 
+      opacity: 0; 
+      backdrop-filter: blur(0px);
+    }
+    to { 
+      opacity: 1; 
+      backdrop-filter: blur(20px);
+    }
+}
+
+@keyframes luxuryModalIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(80px) scale(0.9); 
+      box-shadow: none;
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+      box-shadow: var(--cosmetique-shadow-luxury);
+    }
+}
+
+@keyframes luxuryShimmer {
+    0% { 
+      left: -100%; 
+    }
+    50% { 
+      left: 100%; 
+    }
+    100% { 
+      left: 100%; 
+    }
+}
+
+@keyframes priceGlow {
+    0% { 
+      opacity: 0.6; 
+      transform: scaleX(1);
+    }
+    100% { 
+      opacity: 1; 
+      transform: scaleX(1.05);
+    }
+}
+
+@keyframes detailsGlow {
+    0% { 
+      opacity: 0.7; 
+      box-shadow: 0 0 10px rgba(168, 196, 208, 0.3);
+    }
+    100% { 
+      opacity: 1; 
+      box-shadow: 0 0 20px rgba(168, 196, 208, 0.6);
+    }
+}
+
+/* Autres animations existantes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+}
+
+@keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+}
+
+/* Loading luxury */
+.cosmetique-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.cosmetique-loading p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--cosmetique-accent-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.cosmetique-loading p::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--cosmetique-accent-gradient);
+    animation: luxuryShimmer 2s infinite;
+}
+
+/* ============================== */
+/* RESPONSIVE ADJUSTMENTS - MOBILE */
+/* ============================== */
+
+@media (max-width: 480px) {
+    .cosmetique-navbar {
+      width: 280px;
+      margin-left: 180px;
+      border-radius: 0;
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .cosmetique-navbar-container {
+      flex-direction: column;
+      width: 100%;
+      padding: 2rem;
+      gap: 1rem;
+    }
+  
+    .cosmetique-nav {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .cosmetique-nav-item {
+      padding: 0.8rem;
+      text-align: center;
+      display: inline-block;
+    }
+  
+    .cosmetique-search-wrapper {
+      max-width: 400px;
+      padding-right: -20px;
+    }
+    .cosmetique-search-wrapper ::placeholder {
+        font-size: 12px;
+      }
+    .cosmetique-main {
+      width: 100%;
+      padding: 1rem;
+      margin-left: 70px;
+    }
+  
+    .cosmetique-header-section {
+      margin-left: 0;
+      margin-bottom: 2rem;
+    }
+  
+    .cosmetique-category-title {
+      font-size: 1.7rem;
+      margin-left: 30px;
+    }
+  
+    .cosmetique-subtitle {
+      font-size: 13px;
+      padding: 0 1rem;
+      margin-left: 30px;
+    }
+  
+    /* Mobile - 1 carte par ligne */
+    .cosmetique-products-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-left: 4px;
+    }
+  
+    .cosmetique-card {
+      width: 270px;
+      max-width: 320px;
+      margin-right: -39px;
+    }
+  
+    .cosmetique-modal-backdrop {
+      padding: 1rem;
+    }
+  
+    .cosmetique-modal {
+      margin-top: 20px;
+      max-height: 95vh;
+      border-radius: var(--cosmetique-radius-lg);
+    }
+  
+    .cosmetique-modal-body {
+      flex-direction: column;
+    }
+  
+    .cosmetique-modal-image-section {
+      min-height: 300px;
+      margin: 1rem;
+    }
+  
+    .cosmetique-modal-info-section {
+      padding: 2rem;
+    }
+  
+    .cosmetique-modal-title {
+      font-size: 2rem;
+    }
+  
+    .cosmetique-modal-price {
+      font-size: 1.6rem;
+    }
+  
+    .cosmetique-modal-details {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  
+    .cosmetique-modal-specs {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .cosmetique-modal-actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .cosmetique-modal-add {
+      padding: 1.2rem;
+      font-size: 1rem;
+    }
+  
+    .cosmetique-modal-wishlist {
+      width: 100%;
+      height: 60px;
+      border-radius: var(--cosmetique-radius);
+    }
+  
+    .cosmetique-add-btn {
+      font-size: 0.85rem;
+      padding: 0.8rem 1.2rem;
+      margin-left: 6px;
+    }
+}
+
+/* ============================== */
+/* RESPONSIVE ADJUSTMENTS - TABLET */
+/* ============================== */
+@media (min-width: 481px) and (max-width: 768px) {
+    .cosmetique-navbar {
+      width: 700px;
+      margin-left: 520px;
+    }
+  
+    .cosmetique-navbar-container {
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  
+    .cosmetique-nav {
+      gap: 1.5rem;
+      margin-left: 0;
+    }
+  
+    .cosmetique-main {
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  
+    .cosmetique-header-section {
+      margin-left: 390px;
+      text-wrap: nowrap;
+    }
+  
+    .cosmetique-subtitle {
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      margin-left: -170px;
+    }
+  
+    /* Tablette - 2 cartes par ligne */
+    .cosmetique-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-left: 137px;
+    }
+  
+    .cosmetique-card {
+      margin-right: 0;
+      width: 340px;
+    }
+  
+    .cosmetique-modal-backdrop {
+      padding: 2rem;
+    }
+  
+    .cosmetique-modal-info-section {
+      padding: 2.5rem;
+    }
+  
+    .cosmetique-modal-title {
+      font-size: 2.4rem;
+    }
+  
+    .cosmetique-modal-specs {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .cosmetique-category-title {
+        font-size: 2.7rem;
+        margin-left: -90px;
+      }
+}
+
+/* ============================== */
+/* RESPONSIVE ADJUSTMENTS - LAPTOP */
+/* ============================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cosmetique-navbar {
+      width: 850px;
+      margin-left: 550px;
+    }
+   
+    .cosmetique-navbar-container {
+      width: 100%;
+    }
+  
+    .cosmetique-main {
+      width: 100%;
+      padding: 1rem 3rem;
+    }
+  
+    .cosmetique-header-section {
+      margin-left: 480px;
+    }
+  
+    .cosmetique-subtitle {
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      margin-left: -160px;
+      text-wrap: nowrap;
+    }
+  
+    /* Laptop - 3 cartes par ligne */
+    .cosmetique-products-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-left: 100px;
+    }
+  
+    .cosmetique-card {
+      margin-right: 0;
+      width: 300px;
+    }
+  
+    .cosmetique-modal-backdrop {
+      padding: 2rem;
+    }
+}
+
+/* Focus States for Accessibility */
+.cosmetique-nav-item:focus,
+.cosmetique-search-input:focus,
+.cosmetique-add-btn:focus,
+.cosmetique-modal-add:focus,
+.cosmetique-modal-wishlist:focus {
+    outline: 2px solid var(--cosmetique-accent);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .cosmetique-navbar,
+    .cosmetique-modal-backdrop {
+      display: none !important;
+    }
+    
+    .cosmetique-card {
+      break-inside: avoid;
+      box-shadow: none;
+      border: 1px solid #ccc;
+    }
+    
+    .cosmetique-main {
+      padding: 1rem;
+    }
+}
