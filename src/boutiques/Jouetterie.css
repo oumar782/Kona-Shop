@@ -1,0 +1,1711 @@
+:root {
+    /* Couleurs pour jouetterie */
+    --jouet-primary: #e63946;
+    --jouet-secondary: #f1faee;
+    --jouet-accent: #a8dadc;
+    --jouet-accent-light: #f1faee;
+    --jouet-accent-dark: #1d3557;
+    --jouet-bleu: #457b9d;
+    --jouet-jaune: #ffd166;
+    --jouet-text: #2d3748;
+    --jouet-text-light: #4a5568;
+    --jouet-text-muted: #718096;
+    --jouet-white: #ffffff;
+    --jouet-black: #000000;
+    --jouet-gray-50: #f9fafb;
+    --jouet-gray-100: #f3f4f6;
+    --jouet-gray-200: #e5e7eb;
+    --jouet-gray-300: #d1d5db;
+    --jouet-border: #e2e8f0;
+    --jouet-overlay: rgba(29, 53, 87, 0.95);
+    --jouet-or: #ffd166;
+    --jouet-or-light: #ffe8b6;
+    --jouet-vert: #a8dadc;
+    --jouet-pearl: #faf8f5;
+    
+    /* Gradients */
+    --jouet-gradient: linear-gradient(135deg, #f1faee 0%, #e9f5e9 100%);
+    --jouet-accent-gradient: linear-gradient(135deg, #a8dadc 0%, #f1faee 50%, #457b9d 100%);
+    --jouet-jaune-gradient: linear-gradient(135deg, #ffd166 0%, #ffe8b6 100%);
+    --jouet-shimmer: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    --jouet-bleu-gradient: linear-gradient(135deg, #457b9d 0%, #a8dadc 50%, #1d3557 100%);
+    --jouet-luxury-gradient: linear-gradient(135deg, #e63946 0%, #a8dadc 50%, #1d3557 100%);
+    --jouet-glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    /* Ombres */
+    --jouet-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --jouet-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --jouet-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --jouet-shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+    --jouet-shadow-accent: 0 8px 32px rgba(168, 218, 220, 0.3);
+    --jouet-shadow-luxury: 0 30px 60px rgba(29, 53, 87, 0.25);
+    --jouet-shadow-jaune: 0 15px 35px rgba(255, 209, 102, 0.4);
+    --jouet-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Rayons */
+    --jouet-radius-sm: 8px;
+    --jouet-radius: 12px;
+    --jouet-radius-lg: 20px;
+    --jouet-radius-xl: 24px;
+    --jouet-radius-2xl: 32px;
+    
+    /* Transitions */
+    --jouet-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --jouet-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --jouet-transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --jouet-transition-luxury: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    --jouet-duration: 0.6s;
+    
+    /* Dimensions des cartes */
+    --card-width: 380px;
+    --card-height: 520px;
+    --card-image-height: 320px;
+    
+    /* Points de rupture */
+    --bp-xs: 480px;
+    --bp-sm: 640px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1280px;
+    --bp-2xl: 1536px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--jouet-gradient);
+    color: var(--jouet-text);
+    line-height: 1.8;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ================ */
+/* HEADER NAVIGATION */
+/* ================ */
+.jouet-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(241, 250, 238, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--jouet-border);
+    box-shadow: var(--jouet-shadow-sm);
+    width: 1000px;
+    border-radius: 0 0 20px 20px;
+    margin-left: 1100px;
+}
+
+.jouet-navbar-container {
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 1000px;
+}
+
+/* Navigation */
+.jouet-nav {
+    display: flex;
+    gap: 3rem;
+    margin-left: 50px;
+}
+
+.jouet-nav-item {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--jouet-text);
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--jouet-transition);
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.jouet-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--jouet-accent-gradient);
+    transition: var(--jouet-transition);
+}
+
+.jouet-nav-item.active {
+    color: var(--jouet-accent-dark);
+    font-weight: 600;
+}
+
+.jouet-nav-item.active::after,
+.jouet-nav-item:hover::after {
+    width: 100%;
+}
+
+.jouet-nav-item:hover {
+    color: var(--jouet-accent-dark);
+}
+
+/* Search */
+.jouet-search-wrapper {
+    flex: 1;
+    max-width: 450px;
+    min-width: 250px;
+}
+
+.jouet-search-box {
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    background: var(--jouet-white);
+    border: 1px solid var(--jouet-border);
+    transition: var(--jouet-transition);
+}
+
+.jouet-search-box:focus-within {
+    box-shadow: 0 5px 25px rgba(168, 218, 220, 0.3);
+    border-color: var(--jouet-accent-light);
+}
+
+.jouet-search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--jouet-text-light);
+    pointer-events: none;
+}
+
+.jouet-search-input {
+    width: 100%;
+    padding: 1rem 1.5rem 1rem 3.5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    transition: var(--jouet-transition);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.jouet-search-input::placeholder {
+    color: var(--jouet-text-light);
+    opacity: 0.8;
+}
+
+.jouet-search-input:focus {
+    box-shadow: 0 0 0 3px rgba(168, 218, 220, 0.2);
+}
+
+.jouet-search-clear {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--jouet-text-light);
+    cursor: pointer;
+    transition: var(--jouet-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.jouet-search-clear:hover {
+    color: var(--jouet-accent-dark);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ================ */
+/* MAIN CONTENT */
+/* ================ */
+.jouet-main {
+    max-width: 1800px;
+    width: 1300px;
+    margin: 0 auto;
+    padding: 1rem 8rem;
+    animation: fadeIn var(--jouet-duration) ease-out;
+}
+
+.jouet-header-section {
+    text-align: center;
+    margin-bottom: 5rem;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    margin-left: 230px;
+    text-align: center;
+}
+
+.jouet-root {
+    display: flex;
+    flex-direction: column;
+    margin-left: -180px;
+    align-items: center;
+}
+
+.jouet-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--jouet-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--jouet-primary), var(--jouet-accent-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.jouet-category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--jouet-accent-gradient);
+    border-radius: 2px;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+}
+
+.jouet-subtitle {
+    font-size: 1.4rem;
+    color: var(--jouet-text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Enhanced Grid Layout - Desktop (3 cartes par ligne) */
+.jouet-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(var(--card-width), 1fr));
+    gap: 2.5rem;
+    justify-items: center;
+    padding: 2rem 0;
+    margin-left: 30px;
+}
+
+/* Enhanced Cards with Larger Images */
+.jouet-card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background: var(--jouet-white);
+    border-radius: var(--jouet-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--jouet-shadow);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.6s ease-out forwards;
+    position: relative;
+    transition: var(--jouet-transition);
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    margin-right: -60px;
+}
+
+.jouet-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: var(--jouet-shadow-lg);
+}
+
+/* Image Container */
+.jouet-card-image-wrapper {
+    position: relative;
+    height: 65%;
+    overflow: hidden;
+    border-radius: var(--jouet-radius-lg) var(--jouet-radius-lg) 0 0;
+}
+
+.jouet-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--jouet-transition);
+    will-change: transform;
+}
+
+.jouet-card:hover .jouet-card-image {
+    transform: scale(1.08);
+}
+
+/* Image Gallery Dots */
+.jouet-image-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.jouet-card:hover .jouet-image-dots {
+    opacity: 1;
+}
+
+.jouet-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--jouet-transition);
+}
+
+.jouet-dot:hover, .jouet-dot.active {
+    background: var(--jouet-white);
+    transform: scale(1.3);
+}
+
+/* Hover Overlay */
+.jouet-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: var(--jouet-transition);
+    z-index: 1;
+}
+
+.jouet-card:hover .jouet-card-overlay {
+    opacity: 1;
+}
+
+.jouet-quick-view-btn {
+    background: var(--jouet-white);
+    color: var(--jouet-primary);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--jouet-transition);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.jouet-quick-view-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--jouet-accent-gradient);
+    transition: var(--jouet-transition);
+    z-index: -1;
+}
+
+.jouet-quick-view-btn:hover {
+    color: var(--jouet-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border-color: transparent;
+}
+
+.jouet-quick-view-btn:hover::before {
+    left: 0;
+}
+
+/* Wishlist Button */
+.jouet-wishlist-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--jouet-transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+
+.jouet-card:hover .jouet-wishlist-btn {
+    opacity: 1;
+}
+
+.jouet-wishlist-btn svg {
+    color: var(--jouet-text-light);
+    transition: var(--jouet-transition);
+    stroke-width: 2px;
+}
+
+.jouet-wishlist-btn:hover svg {
+    color: #e31b23;
+    fill: #e31b23;
+    transform: scale(1.2);
+}
+
+/* Badges */
+.jouet-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    color: var(--jouet-white);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--jouet-transition);
+    animation: float 3s ease-in-out infinite;
+}
+
+.jouet-badge-new {
+    background: var(--jouet-primary);
+}
+
+.jouet-badge-bestseller {
+    background: #457b9d;
+}
+
+.jouet-badge-educatif {
+    background: #2a9d8f;
+}
+
+.jouet-card:hover .jouet-badge {
+    transform: translateY(-5px);
+}
+
+/* Enhanced Card Content */
+.jouet-card-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--jouet-white);
+    position: relative;
+}
+
+.jouet-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--jouet-primary);
+    margin-bottom: 0.8rem;
+    transition: var(--jouet-transition);
+    line-height: 1.4;
+}
+
+.jouet-card:hover .jouet-card-title {
+    color: var(--jouet-accent-dark);
+}
+
+.jouet-card-desc {
+    font-size: 0.95rem;
+    color: var(--jouet-text-light);
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Rating */
+.jouet-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.2rem;
+}
+
+.jouet-star {
+    color: var(--jouet-gray);
+    transition: var(--jouet-transition);
+}
+
+.jouet-star.filled {
+    color: var(--jouet-or);
+    fill: var(--jouet-or);
+}
+
+/* Card Footer */
+.jouet-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.jouet-card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--jouet-primary);
+    letter-spacing: 1px;
+}
+
+.jouet-add-btn {
+    background: var(--jouet-primary);
+    color: var(--jouet-white);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--jouet-transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.jouet-add-btn:hover {
+    background: var(--jouet-accent-dark);
+    color: var(--jouet-white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(168, 218, 220, 0.4);
+}
+
+/* No Results */
+.jouet-no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.jouet-no-results svg {
+    color: var(--jouet-accent-light);
+    margin-bottom: 1.5rem;
+}
+
+.jouet-no-results h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--jouet-primary);
+}
+
+.jouet-no-results p {
+    color: var(--jouet-text-light);
+    font-size: 1.1rem;
+}
+
+/* ================ */
+/* MODAL ULTRA LUXUEUX */
+/* ================ */
+.jouet-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    background: linear-gradient(135deg, 
+      rgba(29, 53, 87, 0.96) 0%, 
+      rgba(69, 123, 157, 0.94) 50%, 
+      rgba(29, 53, 87, 0.96) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: luxuryFadeIn 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-top: 80px;
+}
+
+.jouet-modal {
+    background: linear-gradient(145deg, 
+      var(--jouet-pearl) 0%, 
+      var(--jouet-white) 30%, 
+      var(--jouet-vert) 100%);
+    border-radius: var(--jouet-radius-2xl);
+    width: 100%;
+    max-width: 1400px;
+    max-height: 82vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: luxuryModalIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: var(--jouet-shadow-luxury);
+    border: 2px solid rgba(168, 218, 220, 0.2);
+    position: relative;
+}
+
+/* Effet de brillance luxueux sur le modal */
+.jouet-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255,255,255,0.4) 50%, 
+      transparent 100%);
+    animation: luxuryShimmer 3s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.jouet-modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(168, 218, 220, 0.9) 100%);
+    border: 2px solid var(--jouet-accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--jouet-transition-luxury);
+    z-index: 10;
+    box-shadow: var(--jouet-shadow-accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.jouet-modal-close:hover {
+    background: var(--jouet-accent-gradient);
+    color: var(--jouet-white);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 20px 40px rgba(168, 218, 220, 0.5);
+}
+
+.jouet-modal-close svg {
+    transition: var(--jouet-transition);
+    stroke-width: 2.5px;
+}
+
+.jouet-modal-body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 992px) {
+    .jouet-modal-body {
+        flex-direction: row;
+        height: 100%;
+    }
+}
+
+.jouet-modal-image-section {
+    position: relative;
+    flex: 1.2;
+    min-height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+      var(--jouet-vert) 0%, 
+      var(--jouet-pearl) 100%);
+    border-radius: var(--jouet-radius-xl);
+    margin: 1rem;
+    box-shadow: var(--jouet-shadow-inner);
+}
+
+@media (min-width: 992px) {
+    .jouet-modal-image-section {
+        min-height: auto;
+        margin: 1.5rem 1rem 1.5rem 1.5rem;
+    }
+}
+
+.jouet-modal-main-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--jouet-radius-lg);
+    overflow: hidden;
+    background: var(--jouet-glass-gradient);
+    backdrop-filter: blur(5px);
+}
+
+.jouet-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--jouet-transition-luxury);
+    border-radius: var(--jouet-radius-lg);
+}
+
+.jouet-modal-image:hover {
+    transform: scale(1.02);
+}
+
+/* Boutons de navigation ultra luxueux */
+.jouet-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(168, 218, 220, 0.9) 100%);
+    border: 2px solid var(--jouet-accent);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--jouet-transition-luxury);
+    z-index: 3;
+    box-shadow: var(--jouet-shadow-accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.jouet-modal-nav:hover {
+    background: var(--jouet-accent-gradient);
+    color: var(--jouet-white);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 20px 40px rgba(168, 218, 220, 0.5);
+}
+
+.jouet-modal-nav svg {
+    stroke-width: 2.5px;
+    transition: var(--jouet-transition);
+}
+
+.jouet-modal-prev {
+    left: 25px;
+}
+
+.jouet-modal-next {
+    right: 25px;
+}
+
+/* Miniatures luxueuses */
+.jouet-modal-thumbnails {
+    display: flex;
+    gap: 12px;
+    padding: 2rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--jouet-accent) transparent;
+}
+
+.jouet-modal-thumbnails::-webkit-scrollbar {
+    height: 4px;
+}
+
+.jouet-modal-thumbnails::-webkit-scrollbar-track {
+    background: rgba(168, 218, 220, 0.2);
+    border-radius: 2px;
+}
+
+.jouet-modal-thumbnails::-webkit-scrollbar-thumb {
+    background: var(--jouet-accent);
+    border-radius: 2px;
+}
+
+@media (min-width: 992px) {
+    .jouet-modal-thumbnails {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        background: linear-gradient(to top, 
+          rgba(29, 53, 87, 0.8) 0%, 
+          rgba(69, 123, 157, 0.6) 50%,
+          transparent 100%);
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+.jouet-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--jouet-radius);
+    cursor: pointer;
+    transition: var(--jouet-transition-luxury);
+    border: 3px solid rgba(168, 218, 220, 0.3);
+    box-shadow: var(--jouet-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.jouet-thumb::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--jouet-glass-gradient);
+    opacity: 0;
+    transition: var(--jouet-transition);
+    border-radius: var(--jouet-radius-sm);
+}
+
+.jouet-thumb:hover {
+    transform: scale(1.1) translateY(-5px);
+    border-color: var(--jouet-accent);
+    box-shadow: var(--jouet-shadow-accent);
+}
+
+.jouet-thumb:hover::before {
+    opacity: 1;
+}
+
+.jouet-thumb.active {
+    border-color: var(--jouet-accent);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: var(--jouet-shadow-accent);
+    background: var(--jouet-accent-gradient);
+}
+
+.jouet-thumb.active::before {
+    opacity: 0.2;
+}
+
+/* Section d'informations ultra luxueuse */
+.jouet-modal-info-section {
+    flex: 1;
+    padding: 3rem;
+    overflow-y: auto;
+    background: linear-gradient(135deg, 
+      var(--jouet-white) 0%, 
+      var(--jouet-pearl) 50%, 
+      var(--jouet-vert) 100%);
+    position: relative;
+}
+
+.jouet-modal-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--jouet-accent-gradient);
+    opacity: 0.6;
+}
+
+.jouet-modal-header {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.jouet-modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--jouet-accent-gradient);
+    border-radius: 1px;
+}
+
+.jouet-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, 
+      var(--jouet-primary) 0%, 
+      var(--jouet-accent-dark) 50%, 
+      var(--jouet-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.jouet-modal-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--jouet-accent);
+    text-shadow: 0 2px 4px rgba(168, 218, 220, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.jouet-modal-price::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--jouet-accent-gradient);
+    border-radius: 1px;
+    animation: priceGlow 2s ease-in-out infinite alternate;
+}
+
+/* Section de notation luxueuse */
+.jouet-modal-rating {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--jouet-radius-lg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(168, 218, 220, 0.2);
+    box-shadow: var(--jouet-shadow-inner);
+}
+
+.jouet-modal-rating .jouet-rating {
+    margin-bottom: 0;
+    gap: 6px;
+}
+
+.jouet-modal-rating .jouet-star {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(168, 218, 220, 0.3));
+}
+
+.jouet-modal-category {
+    background: var(--jouet-accent-gradient);
+    color: var(--jouet-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: var(--jouet-shadow-accent);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.jouet-modal-desc {
+    font-size: 1.2rem;
+    color: var(--jouet-text);
+    margin-bottom: 3rem;
+    line-height: 1.9;
+    font-weight: 400;
+    text-align: justify;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--jouet-radius-lg);
+    border-left: 4px solid var(--jouet-accent);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: var(--jouet-shadow-inner);
+}
+
+/* Section détails ultra raffinée */
+.jouet-modal-details {
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(168, 218, 220, 0.6) 100%);
+    border-radius: var(--jouet-radius-xl);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(168, 218, 220, 0.2);
+    box-shadow: var(--jouet-shadow-lg);
+    position: relative;
+}
+
+.jouet-modal-details::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: var(--jouet-accent-gradient);
+    border-radius: var(--jouet-radius-xl);
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.jouet-modal-details h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, 
+      var(--jouet-primary) 0%, 
+      var(--jouet-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.jouet-modal-details h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--jouet-accent-gradient);
+    border-radius: 2px;
+    animation: detailsGlow 3s ease-in-out infinite alternate;
+}
+
+.jouet-modal-details ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.jouet-modal-details li {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    line-height: 1.7;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--jouet-radius);
+    border-left: 3px solid var(--jouet-accent);
+    transition: var(--jouet-transition);
+}
+
+.jouet-modal-details li:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(5px);
+    box-shadow: var(--jouet-shadow);
+}
+
+.jouet-modal-details li svg {
+    color: var(--jouet-accent);
+    flex-shrink: 0;
+    margin-top: 4px;
+    filter: drop-shadow(0 2px 4px rgba(168, 218, 220, 0.3));
+}
+
+.jouet-modal-details strong {
+    color: var(--jouet-primary);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+/* Spécifications luxueuses */
+.jouet-modal-specs {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.jouet-modal-specs p {
+    font-size: 1rem;
+    color: var(--jouet-text);
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: var(--jouet-radius);
+    border: 1px solid rgba(168, 218, 220, 0.2);
+    transition: var(--jouet-transition);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.jouet-modal-specs p:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: var(--jouet-shadow);
+}
+
+.jouet-modal-specs strong {
+    color: var(--jouet-primary);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Actions ultra luxueuses */
+.jouet-modal-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.jouet-modal-add {
+    flex: 1;
+    background: var(--jouet-luxury-gradient);
+    color: var(--jouet-white);
+    border: 2px solid var(--jouet-accent);
+    padding: 1.5rem 2rem;
+    border-radius: var(--jouet-radius-lg);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: var(--jouet-transition-luxury);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--jouet-shadow-luxury);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.jouet-modal-add::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--jouet-accent-gradient);
+    transition: var(--jouet-transition-luxury);
+    z-index: -1;
+}
+
+.jouet-modal-add:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(29, 53, 87, 0.4);
+    border-color: var(--jouet-accent-light);
+}
+
+.jouet-modal-add:hover::before {
+    left: 0;
+}
+
+.jouet-modal-add svg {
+    transition: var(--jouet-transition);
+    stroke-width: 2.5px;
+}
+
+.jouet-modal-add:hover svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 2px 4px rgba(255,255,255,0.3));
+}
+
+.jouet-modal-wishlist {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(168, 218, 220, 0.9) 100%);
+    color: var(--jouet-primary);
+    border: 2px solid var(--jouet-accent);
+    width: 70px;
+    height: 70px;
+    border-radius: var(--jouet-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--jouet-transition-luxury);
+    box-shadow: var(--jouet-shadow-accent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.jouet-modal-wishlist::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #e31b23, #ff6b6b);
+    opacity: 0;
+    transition: var(--jouet-transition-luxury);
+    border-radius: var(--jouet-radius-lg);
+}
+
+.jouet-modal-wishlist:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 20px 40px rgba(227, 27, 35, 0.4);
+    border-color: #e31b23;
+}
+
+.jouet-modal-wishlist:hover::before {
+    opacity: 1;
+}
+
+.jouet-modal-wishlist svg {
+    transition: var(--jouet-transition-luxury);
+    stroke-width: 2.5px;
+    z-index: 2;
+    position: relative;
+}
+
+.jouet-modal-wishlist:hover svg {
+    transform: scale(1.3);
+    color: var(--jouet-white);
+    fill: var(--jouet-white);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Animations luxueuses */
+@keyframes luxuryFadeIn {
+    from { 
+      opacity: 0; 
+      backdrop-filter: blur(0px);
+    }
+    to { 
+      opacity: 1; 
+      backdrop-filter: blur(20px);
+    }
+}
+
+@keyframes luxuryModalIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(80px) scale(0.9); 
+      box-shadow: none;
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+      box-shadow: var(--jouet-shadow-luxury);
+    }
+}
+
+@keyframes luxuryShimmer {
+    0% { 
+      left: -100%; 
+    }
+    50% { 
+      left: 100%; 
+    }
+    100% { 
+      left: 100%; 
+    }
+}
+
+@keyframes priceGlow {
+    0% { 
+      opacity: 0.6; 
+      transform: scaleX(1);
+    }
+    100% { 
+      opacity: 1; 
+      transform: scaleX(1.05);
+    }
+}
+
+@keyframes detailsGlow {
+    0% { 
+      opacity: 0.7; 
+      box-shadow: 0 0 10px rgba(168, 218, 220, 0.3);
+    }
+    100% { 
+      opacity: 1; 
+      box-shadow: 0 0 20px rgba(168, 218, 220, 0.6);
+    }
+}
+
+/* Autres animations existantes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+}
+
+@keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+}
+
+/* Loading luxury */
+.jouet-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.jouet-loading p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--jouet-accent-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.jouet-loading p::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--jouet-accent-gradient);
+    animation: luxuryShimmer 2s infinite;
+}
+
+/* ============================== */
+/* RESPONSIVE ADJUSTMENTS - MOBILE */
+/* ============================== */
+
+@media (max-width: 480px) {
+    .jouet-navbar {
+      width: 280px;
+      margin-left: 180px;
+      border-radius: 0;
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .jouet-navbar-container {
+      flex-direction: column;
+      width: 100%;
+      padding: 2rem;
+      gap: 1rem;
+    }
+  
+    .jouet-nav {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .jouet-nav-item {
+      padding: 0.8rem;
+      text-align: center;
+      display: inline-block;
+    }
+  
+    .jouet-search-wrapper {
+      max-width: 400px;
+      padding-right: -20px;
+    }
+    .jouet-search-wrapper ::placeholder {
+        font-size: 12px;
+      }
+    .jouet-main {
+      width: 100%;
+      padding: 1rem;
+      margin-left: 70px;
+    }
+  
+    .jouet-header-section {
+      margin-left: 0;
+      margin-bottom: 2rem;
+    }
+  
+    .jouet-category-title {
+      font-size: 1.7rem;
+      margin-left: 30px;
+    }
+  
+    .jouet-subtitle {
+      font-size: 13px;
+      padding: 0 1rem;
+      margin-left: 30px;
+    }
+  
+    /* Mobile - 1 carte par ligne */
+    .jouet-products-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-left: 4px;
+    }
+  
+    .jouet-card {
+      width: 270px;
+      max-width: 320px;
+      margin-right: -39px;
+    }
+  
+    .jouet-modal-backdrop {
+      padding: 1rem;
+    }
+  
+    .jouet-modal {
+      margin-top: 20px;
+      max-height: 95vh;
+      border-radius: var(--jouet-radius-lg);
+    }
+  
+    .jouet-modal-body {
+      flex-direction: column;
+    }
+  
+    .jouet-modal-image-section {
+      min-height: 300px;
+      margin: 1rem;
+    }
+  
+    .jouet-modal-info-section {
+      padding: 2rem;
+    }
+  
+    .jouet-modal-title {
+      font-size: 2rem;
+    }
+  
+    .jouet-modal-price {
+      font-size: 1.6rem;
+    }
+  
+    .jouet-modal-details {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  
+    .jouet-modal-specs {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .jouet-modal-actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .jouet-modal-add {
+      padding: 1.2rem;
+      font-size: 1rem;
+    }
+  
+    .jouet-modal-wishlist {
+      width: 100%;
+      height: 60px;
+      border-radius: var(--jouet-radius);
+    }
+  
+    .jouet-add-btn {
+      font-size: 0.85rem;
+      padding: 0.8rem 1.2rem;
+      margin-left: 6px;
+    }
+}
+
+/* ============================== */
+/* RESPONSIVE ADJUSTMENTS - TABLET */
+/* ============================== */
+@media (min-width: 481px) and (max-width: 768px) {
+    .jouet-navbar {
+      width: 700px;
+      margin-left: 520px;
+    }
+  
+    .jouet-navbar-container {
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  
+    .jouet-nav {
+      gap: 1.5rem;
+      margin-left: 0;
+    }
+  
+    .jouet-main {
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  
+    .jouet-header-section {
+      margin-left: 390px;
+      text-wrap: nowrap;
+    }
+  
+    .jouet-subtitle {
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      margin-left: -170px;
+    }
+  
+    /* Tablette - 2 cartes par ligne */
+    .jouet-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-left: 137px;
+    }
+  
+    .jouet-card {
+      margin-right: 0;
+      width: 340px;
+    }
+  
+    .jouet-modal-backdrop {
+      padding: 2rem;
+    }
+  
+    .jouet-modal-info-section {
+      padding: 2.5rem;
+    }
+  
+    .jouet-modal-title {
+      font-size: 2.4rem;
+    }
+  
+    .jouet-modal-specs {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .jouet-category-title {
+        font-size: 2.7rem;
+        margin-left: -90px;
+      }
+}
+
+/* ============================== */
+/* RESPONSIVE ADJUSTMENTS - LAPTOP */
+/* ============================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .jouet-navbar {
+      width: 850px;
+      margin-left: 550px;
+    }
+   
+    .jouet-navbar-container {
+      width: 100%;
+    }
+  
+    .jouet-main {
+      width: 100%;
+      padding: 1rem 3rem;
+    }
+  
+    .jouet-header-section {
+      margin-left: 480px;
+    }
+  
+    .jouet-subtitle {
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      margin-left: -160px;
+      text-wrap: nowrap;
+    }
+  
+    /* Laptop - 3 cartes par ligne */
+    .jouet-products-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-left: 100px;
+    }
+  
+    .jouet-card {
+      margin-right: 0;
+      width: 300px;
+    }
+  
+    .jouet-modal-backdrop {
+      padding: 2rem;
+    }
+}
+
+/* Focus States for Accessibility */
+.jouet-nav-item:focus,
+.jouet-search-input:focus,
+.jouet-add-btn:focus,
+.jouet-modal-add:focus,
+.jouet-modal-wishlist:focus {
+    outline: 2px solid var(--jouet-accent);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .jouet-navbar,
+    .jouet-modal-backdrop {
+      display: none !important;
+    }
+    
+    .jouet-card {
+      break-inside: avoid;
+      box-shadow: none;
+      border: 1px solid #ccc;
+    }
+    
+    .jouet-main {
+      padding: 1rem;
+    }
+}
