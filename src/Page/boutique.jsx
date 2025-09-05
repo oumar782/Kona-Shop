@@ -43,28 +43,28 @@ const premiumCategories = [
   },
   { 
     id: 'cosmetics', 
-    label: 'Beauté & Soin', 
+    label: 'Cosmetique', 
     description: 'Des soins haute performance qui révèlent votre éclat naturel.',
     icon: Smile,
     productCount: '23 produits'
   },
   { 
     id: 'toys', 
-    label: 'Jouets', 
+    label: 'Jouetterie', 
     description: 'Des créations uniques pour faire briller les yeux des petits et grands rêveurs.',
     icon: Gamepad2,
     productCount: '15 produits'
   },
   { 
     id: 'electronics', 
-    label: 'Tech Élite', 
+    label: 'Electronique', 
     description: 'Quand la technologie rencontre l’art du détail, pour sublimer votre quotidien.',
     icon: Smartphone,
     productCount: '42 produits'
   },
   { 
     id: 'home-decor', 
-    label: 'Décoration', 
+    label: 'Décoration-Maison', 
     description: 'Des pièces design et intemporelles pour créer un intérieur à votre image.',
     icon: Home,
     productCount: '23 produits'
