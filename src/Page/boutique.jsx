@@ -8,12 +8,10 @@ import {
   Home,
   Gem,
   Car,
-  ArrowRight,
-  Sparkles,
-  Search,
   ChevronDown,
-  X
+  Sparkles,
 } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './boutique.css';
 
 // Lazy load des composants
@@ -27,85 +25,45 @@ const Bijouterie = lazy(() => import('../boutiques/Bijouterie'));
 const AccesoiresAuto = lazy(() => import('../boutiques/AccesoiresAuto'));
 
 const premiumCategories = [
-  { 
-    id: 'ready-to-wear', 
-    label: 'Prêt-à-Porter', 
-    description: 'Élégance taillée sur mesure, pour un style qui laisse une empreinte inoubliable.',
-    icon: Shirt,
-    productCount: '85 produits'
-  },
-  { 
-    id: 'perfumery', 
-    label: 'Parfumerie', 
-    description: 'Des fragrances rares pour sublimer votre présence et signer votre personnalité.',
-    icon: SprayCan,
-    productCount: '42 produits'
-  },
-  { 
-    id: 'cosmetics', 
-    label: 'Cosmetique', 
-    description: 'Des soins haute performance qui révèlent votre éclat naturel.',
-    icon: Smile,
-    productCount: '23 produits'
-  },
-  { 
-    id: 'toys', 
-    label: 'Jouetterie', 
-    description: 'Des créations uniques pour faire briller les yeux des petits et grands rêveurs.',
-    icon: Gamepad2,
-    productCount: '15 produits'
-  },
-  { 
-    id: 'electronics', 
-    label: 'Electronique', 
-    description: 'Quand la technologie rencontre l’art du détail, pour sublimer votre quotidien.',
-    icon: Smartphone,
-    productCount: '42 produits'
-  },
-  { 
-    id: 'home-decor', 
-    label: 'Décoration-Maison', 
-    description: 'Des pièces design et intemporelles pour créer un intérieur à votre image.',
-    icon: Home,
-    productCount: '23 produits'
-  },
-  { 
-    id: 'jewelry', 
-    label: 'Bijoux', 
-    description: 'Exprimez votre singularité avec des créations précieuses façonnées avec passion.',
-    icon: Gem,
-    productCount: '15 produits'
-  },
-  { 
-    id: 'auto-luxury', 
-    label: 'Accessoires Auto', 
-    description: 'Alliez raffinement et performance jusque dans les moindres détails de votre véhicule.',
-    icon: Car,
-    productCount: '15 produits'
-  }
+  { id: 'pret-a-porter', label: 'Prêt-à-Porter', description: 'Élégance taillée sur mesure...', icon: Shirt, productCount: '85 produits' },
+  { id: 'parfumerie', label: 'Parfumerie', description: 'Des fragrances rares...', icon: SprayCan, productCount: '42 produits' },
+  { id: 'cosmetique', label: 'Cosmetique', description: 'Des soins haute performance...', icon: Smile, productCount: '23 produits' },
+  { id: 'jouets', label: 'Jouets', description: 'Des créations uniques...', icon: Gamepad2, productCount: '15 produits' },
+  { id: 'electronique', label: 'Electronique', description: 'Quand la technologie rencontre l’art...', icon: Smartphone, productCount: '42 produits' },
+  { id: 'decoration-maison', label: 'Décoration-Maison', description: 'Des pièces design...', icon: Home, productCount: '23 produits' },
+  { id: 'bijouterie', label: 'Bijouterie', description: 'Exprimez votre singularité...', icon: Gem, productCount: '15 produits' },
+  { id: 'accesoires-auto', label: 'Accessoires Auto', description: 'Alliez raffinement et performance...', icon: Car, productCount: '15 produits' }
 ];
 
 const BoutiqueLuxe = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const { category } = useParams(); // on lit la catégorie dans l'URL
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const productsSectionRef = useRef(null);
 
   useEffect(() => {
-    if (activeCategory && productsSectionRef.current) {
-      productsSectionRef.current.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+    if (category && productsSectionRef.current) {
+      productsSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }, [activeCategory]);
+  }, [category]);
 
-  const filteredCategories = premiumCategories.filter(category =>
-    category.label.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredCategories = premiumCategories;
+
+  const components = {
+    'pret-a-porter': <PretAPorter />,
+    'parfumerie': <Parfumerie />,
+    'cosmetique': <Cosmetique />,
+    'jouets': <Jouets />,
+    'electronique': <Electronique />,
+    'decoration-maison': <DecorationMaison />,
+    'bijouterie': <Bijouterie />,
+    'accesoires-auto': <AccesoiresAuto />
+  };
+
+  const activeCatData = premiumCategories.find(cat => cat.id === category);
 
   const renderContent = () => {
-    if (!activeCategory) {
+    if (!category) {
       return (
         <div className="premium-placeholder animate-fade-in">
           <div className="premium-placeholder-icon animate-float">
@@ -120,19 +78,6 @@ const BoutiqueLuxe = () => {
       );
     }
 
-    const components = {
-      'ready-to-wear': <PretAPorter />,
-      'perfumery': <Parfumerie />,
-      'cosmetics': <Cosmetique />,
-      'toys': <Jouets />,
-      'electronics': <Electronique />,
-      'home-decor': <DecorationMaison />,
-      'jewelry': <Bijouterie />,
-      'auto-luxury': <AccesoiresAuto />
-    };
-
-    const activeCatData = premiumCategories.find(cat => cat.id === activeCategory);
-
     return (
       <div className="premium-products-container animate-fade-in">
         <div className="premium-products-header">
@@ -145,7 +90,6 @@ const BoutiqueLuxe = () => {
               <p className="premium-products-description">{activeCatData.description}</p>
             </div>
           </div>
-       
         </div>
         <div className="premium-products-grid">
           <Suspense fallback={
@@ -154,7 +98,7 @@ const BoutiqueLuxe = () => {
               <span>Chargement des produits...</span>
             </div>
           }>
-            {components[activeCategory]}
+            {components[category]}
           </Suspense>
         </div>
       </div>
@@ -180,31 +124,26 @@ const BoutiqueLuxe = () => {
 
       {/* Categories Navigation */}
       <section className="premium-categories-nav">
-
-
         <button 
           className="premium-mobile-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {activeCategory ? 
-            premiumCategories.find(cat => cat.id === activeCategory)?.label : 
-            'Catégories'
-          }
+          {category ? activeCatData?.label : 'Catégories'}
           <ChevronDown size={18} className={`transition-transform ${isMobileMenuOpen ? 'rotate-180' : ''}`} />
         </button>
 
         <div className={`premium-categories-list ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-          {filteredCategories.map((category) => (
+          {filteredCategories.map((cat) => (
             <button
-              key={category.id}
-              className={`premium-category-item ${activeCategory === category.id ? 'active' : ''}`}
+              key={cat.id}
+              className={`premium-category-item ${category === cat.id ? 'active' : ''}`}
               onClick={() => {
-                setActiveCategory(category.id);
+                navigate(`/${cat.id}`); // redirige vers la route de la catégorie
                 setIsMobileMenuOpen(false);
               }}
             >
-              <span>{category.label}</span>
-              <span className="premium-product-count">{category.productCount}</span>
+              <span>{cat.label}</span>
+              <span className="premium-product-count">{cat.productCount}</span>
             </button>
           ))}
         </div>

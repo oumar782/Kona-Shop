@@ -45,14 +45,14 @@ const EliteCategories = () => {
       icon: Palette, 
       description: "Formules rares pour une beauté sublimée", 
       bgGradient: "radial-gradient(circle at 50% 30%, rgba(252,231,243,0.15) 0%, transparent 50%)",
-      link: "/cosmetiques"
+      link: "/cosmetique"
     },
     { 
       name: "Décoration Maison", 
       icon: Palette, 
       description: "Objets d'art et design intemporel", 
       bgGradient: "radial-gradient(circle at 50% 70%, rgba(252,231,243,0.15) 0%, transparent 50%)",
-      link: "/decoration"
+      link: "/decoration-maison"
     },
     { 
       name: "Jouetterie", 
@@ -66,7 +66,7 @@ const EliteCategories = () => {
       icon: Car, 
       description: "Élégance et puissance discrète", 
       bgGradient: "radial-gradient(circle at 70% 50%, rgba(236,253,245,0.15) 0%, transparent 50%)",
-      link: "/automobile"
+      link: "/accesoires-auto"
     }
   ];
 
